@@ -1,0 +1,1707 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Denghui Zhang (张登辉) — Assistant Professor at Stevens</title>
+<meta name="description" content="Denghui Zhang — Assistant Professor at Stevens Institute of Technology. Research on safe and reliable Generative AI." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+<style>
+:root {
+  --bg: #F8F5EE;
+  --bg-tint: #F1ECE0;
+  --ink: #16151C;
+  --ink-soft: #4A4751;
+  --ink-mute: #8A8682;
+  --rule: #D9D2C4;
+  --accent: #E3502F;
+  --accent-2: #4E3F87;
+  --link: #1F1B33;
+  --card: rgba(255,255,255,0.45);
+  --nav-bg: rgba(248,245,238,0.78);
+  --constellation: #16151C;
+  --serif: "Instrument Serif", "Source Serif Pro", Georgia, serif;
+  --sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --container: 1240px;
+  --gutter: clamp(20px, 4vw, 56px);
+}
+
+:root[data-theme="dark"] {
+  --bg: #14130F;
+  --bg-tint: #1B1916;
+  --ink: #F3EEDF;
+  --ink-soft: #B5AFA0;
+  --ink-mute: #76716A;
+  --rule: #2B2822;
+  --accent: #FF7350;
+  --accent-2: #9D8AD6;
+  --link: #F3EEDF;
+  --card: rgba(255,255,255,0.03);
+  --nav-bg: rgba(20,19,15,0.78);
+  --constellation: #F3EEDF;
+}
+:root[data-theme="dark"] body::before {
+  background: radial-gradient(circle, rgba(255,115,80,0.18), transparent 70%);
+  opacity: 0.55;
+}
+:root[data-theme="dark"] body::after {
+  background: radial-gradient(circle, rgba(157,138,214,0.18), transparent 70%);
+  opacity: 0.55;
+}
+:root[data-theme="dark"] .award.feature {
+  background: linear-gradient(135deg, rgba(255,115,80,0.10), rgba(157,138,214,0.06));
+  border-color: rgba(255,115,80,0.3);
+}
+:root[data-theme="dark"] .prospective {
+  background: rgba(255,115,80,0.07);
+}
+:root[data-theme="dark"] .btn.primary:hover {
+  background: var(--accent); color: var(--bg);
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+/* Soft decorative blobs in corners */
+body::before, body::after {
+  content: "";
+  position: fixed;
+  width: 520px;
+  height: 520px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  filter: blur(80px);
+  opacity: 0.35;
+}
+body::before {
+  top: -180px;
+  left: -180px;
+  background: radial-gradient(circle, rgba(227,80,47,0.45), transparent 70%);
+}
+body::after {
+  bottom: -200px;
+  right: -200px;
+  background: radial-gradient(circle, rgba(78,63,135,0.4), transparent 70%);
+}
+
+a {
+  color: var(--link);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(22,21,28,0.25);
+  transition: border-color 0.2s, color 0.2s;
+}
+a:hover {
+  border-bottom-color: var(--accent);
+  color: var(--accent);
+}
+
+/* ============ NAV ============ */
+.site-nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--nav-bg);
+  backdrop-filter: saturate(140%) blur(10px);
+  -webkit-backdrop-filter: saturate(140%) blur(10px);
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.3s;
+}
+.site-nav.scrolled { border-bottom-color: var(--rule); }
+.site-nav-inner {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 18px var(--gutter);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink);
+  border: none;
+}
+.brand:hover { color: var(--accent); }
+.brand-dots {
+  display: inline-flex;
+  gap: 4px;
+  align-items: center;
+}
+.brand-dots span {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: var(--accent);
+  display: inline-block;
+}
+.brand-dots span:nth-child(2) {
+  background: var(--accent-2);
+  width: 5px; height: 5px;
+  transform: translateY(-3px);
+}
+
+.nav-links {
+  display: flex;
+  gap: 28px;
+  font-size: 14px;
+}
+.nav-links a {
+  border: none;
+  color: var(--ink);
+  position: relative;
+}
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: -4px;
+  height: 1px;
+  background: var(--ink);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s ease;
+}
+.nav-links a:hover { color: var(--ink); }
+.nav-links a:hover::after { transform: scaleX(1); }
+
+@media (max-width: 860px) {
+  .nav-links { display: none; }
+}
+
+/* ============ LAYOUT ============ */
+main {
+  position: relative;
+  z-index: 1;
+}
+.wrap {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+.section {
+  padding: 100px 0;
+  position: relative;
+}
+.section + .section { border-top: 1px dashed var(--rule); }
+
+.section-grid {
+  display: grid;
+  grid-template-columns: minmax(260px, 1fr) minmax(0, 2fr);
+  gap: clamp(32px, 6vw, 96px);
+  align-items: start;
+}
+.section-head .eyebrow {
+  display: block;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  margin-bottom: 26px;
+}
+.section-head h2 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(28px, 3.4vw, 44px);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  margin: 0;
+  color: var(--ink);
+}
+.section-head h2 em {
+  font-style: italic;
+  background: linear-gradient(95deg, var(--accent) 25%, var(--accent-2) 95%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+@media (max-width: 860px) {
+  .section-grid { grid-template-columns: 1fr; gap: 28px; }
+  .section { padding: 72px 0; }
+}
+
+/* ============ HERO ============ */
+.hero {
+  padding: clamp(80px, 12vw, 140px) 0 clamp(80px, 10vw, 120px);
+  position: relative;
+  overflow: hidden;
+}
+.hero-inner { position: relative; z-index: 1; }
+.hero .eyebrow {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  margin-bottom: 32px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+.hero .eyebrow .dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 4px rgba(227,80,47,0.18);
+}
+.hero h1 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(28px, 3.8vw, 58px);
+  line-height: 1.15;
+  letter-spacing: -0.005em;
+  margin: 0 0 28px;
+  color: var(--ink);
+  max-width: 720px;
+}
+.hero h1 em {
+  font-style: italic;
+  background: linear-gradient(95deg, var(--accent) 10%, var(--accent-2) 85%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  padding: 0 0.05em;
+}
+.hero-sub {
+  font-family: var(--sans);
+  font-size: clamp(16px, 1.4vw, 18px);
+  line-height: 1.55;
+  max-width: 580px;
+  color: var(--ink-soft);
+  margin: 0 0 40px;
+}
+.hero-sub a { color: var(--ink); }
+
+.cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  align-items: center;
+}
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 22px;
+  border-radius: 999px;
+  font-family: var(--sans);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  border: 1px solid var(--ink);
+  background: transparent;
+  color: var(--ink);
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+.btn:hover { background: var(--ink); color: var(--bg); }
+.btn.primary { background: var(--ink); color: var(--bg); }
+.btn.primary:hover { background: var(--accent); border-color: var(--accent); }
+.btn .arrow { display: inline-block; transition: transform 0.2s; }
+.btn:hover .arrow { transform: translateX(2px); }
+
+.hero-foot {
+  margin-top: clamp(60px, 8vw, 96px);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 24px;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+}
+.hero-foot .toc { display: flex; gap: 22px; flex-wrap: wrap; }
+.hero-foot .toc a { border: none; color: var(--ink-mute); }
+.hero-foot .toc a:hover { color: var(--accent); }
+.hero-foot .toc .n { color: var(--ink); margin-right: 5px; }
+
+/* ============ ABOUT ============ */
+.portrait {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 1px solid var(--rule);
+  box-shadow: 0 20px 48px -24px rgba(22,21,28,0.35);
+  margin: 0 0 28px;
+  position: relative;
+  background: var(--card);
+}
+.portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.portrait--fallback {
+  background: linear-gradient(135deg, rgba(227,80,47,0.18), rgba(78,63,135,0.14));
+}
+.portrait--fallback::after {
+  content: "DZ";
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--serif);
+  font-size: 72px;
+  color: var(--accent);
+  letter-spacing: -0.02em;
+}
+@media (max-width: 860px) {
+  .portrait { width: 160px; height: 160px; }
+  .portrait--fallback::after { font-size: 56px; }
+}
+
+.about-text p {
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--ink-soft);
+  margin: 0 0 18px;
+}
+.about-text p strong { color: var(--ink); font-weight: 600; }
+.about-text p:first-child { font-size: 19px; color: var(--ink); }
+
+.about-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 36px;
+}
+.about-card {
+  border: 1px solid var(--rule);
+  border-radius: 14px;
+  padding: 22px 20px;
+  background: var(--card);
+}
+.about-card .label {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  margin-bottom: 10px;
+}
+.about-card .title {
+  font-family: var(--serif);
+  font-size: 22px;
+  margin: 0 0 8px;
+  font-weight: 400;
+}
+.about-card p {
+  font-size: 14px;
+  color: var(--ink-soft);
+  margin: 0;
+  line-height: 1.5;
+}
+@media (max-width: 720px) {
+  .about-cards { grid-template-columns: 1fr; }
+}
+
+.prospective {
+  margin-top: 32px;
+  padding: 22px 24px;
+  border-left: 2px solid var(--accent);
+  background: rgba(227,80,47,0.05);
+  border-radius: 0 12px 12px 0;
+}
+.prospective .label {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 10px;
+}
+.prospective p { margin: 0; font-size: 15px; color: var(--ink-soft); }
+
+/* ============ RESEARCH ============ */
+.research-text {
+  font-family: var(--serif);
+  font-size: clamp(22px, 2.4vw, 30px);
+  line-height: 1.35;
+  color: var(--ink);
+  margin: 0;
+  font-weight: 400;
+  max-width: 760px;
+}
+.research-text em {
+  font-style: italic;
+  color: var(--accent);
+}
+
+/* ============ NEWS ============ */
+.news-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border-top: 1px dashed var(--rule);
+}
+.news-item {
+  padding: 22px 0;
+  border-bottom: 1px dashed var(--rule);
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  gap: 24px;
+  align-items: baseline;
+}
+.news-date {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  color: var(--ink-mute);
+  white-space: nowrap;
+}
+.news-body {
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--ink);
+}
+.news-body a { color: var(--accent); border-bottom-color: rgba(227,80,47,0.3); }
+.news-tag {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  padding: 2px 8px;
+  border: 1px solid var(--accent);
+  border-radius: 999px;
+  margin-right: 8px;
+  vertical-align: 1px;
+}
+@media (max-width: 640px) {
+  .news-item { grid-template-columns: 1fr; gap: 6px; }
+}
+
+/* ============ PUBLICATIONS ============ */
+.pub-group { margin-bottom: 56px; }
+.pub-group:last-child { margin-bottom: 0; }
+.pub-group h3 {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  margin: 0 0 22px;
+  font-weight: 500;
+}
+.pub-group h3 .hint {
+  font-family: var(--sans);
+  text-transform: none;
+  letter-spacing: 0;
+  font-size: 12px;
+  color: var(--ink-mute);
+  margin-left: 12px;
+}
+.pub-list { list-style: none; padding: 0; margin: 0; }
+.pub {
+  padding: 22px 0;
+  border-bottom: 1px dashed var(--rule);
+  display: grid;
+  grid-template-columns: 58px 1fr;
+  gap: 22px;
+}
+.pub:first-child { border-top: 1px dashed var(--rule); }
+.pub .year {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--accent);
+  letter-spacing: 0.1em;
+}
+.pub h4 {
+  font-family: var(--serif);
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1.25;
+  margin: 0 0 8px;
+}
+.pub h4 a {
+  color: var(--ink);
+  border: none;
+}
+.pub h4 a:hover { color: var(--accent); }
+.pub .authors {
+  font-size: 14px;
+  color: var(--ink-soft);
+  line-height: 1.5;
+  margin: 0 0 6px;
+}
+.pub .authors strong { color: var(--ink); font-weight: 600; }
+.pub .venue {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+  display: inline-block;
+  margin-right: 10px;
+}
+.pub .badges { display: inline-flex; gap: 6px; }
+.pub .badge {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: rgba(78,63,135,0.1);
+  color: var(--accent-2);
+  border: none;
+}
+.pub .badge.feature {
+  background: rgba(227,80,47,0.12);
+  color: var(--accent);
+}
+
+/* ============ TEACHING ============ */
+.teach-list {
+  display: grid;
+  gap: 16px;
+}
+.teach-item {
+  padding: 24px 26px;
+  border: 1px solid var(--rule);
+  border-radius: 14px;
+  background: var(--card);
+}
+.teach-item .meta {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  margin-bottom: 8px;
+}
+.teach-item h4 {
+  font-family: var(--serif);
+  font-size: 26px;
+  font-weight: 400;
+  margin: 0 0 10px;
+}
+.teach-item p {
+  margin: 0;
+  font-size: 14px;
+  color: var(--ink-soft);
+  line-height: 1.55;
+}
+
+/* ============ STUDENTS ============ */
+.alumni-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border-top: 1px dashed var(--rule);
+}
+.alumni-list li {
+  padding: 18px 0;
+  border-bottom: 1px dashed var(--rule);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 16px;
+  align-items: baseline;
+}
+.alumni-list .name {
+  font-family: var(--serif);
+  font-size: 20px;
+}
+.alumni-list .where {
+  font-size: 13px;
+  color: var(--ink-soft);
+  font-family: var(--sans);
+}
+.alumni-list .arrow {
+  font-family: var(--mono);
+  color: var(--accent);
+  margin: 0 6px;
+}
+@media (max-width: 640px) {
+  .alumni-list li { grid-template-columns: 1fr; gap: 4px; }
+}
+
+/* ============ SERVICE ============ */
+.service-group { margin-bottom: 32px; }
+.service-group:last-child { margin-bottom: 0; }
+.service-group h3 {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  margin: 0 0 14px;
+  font-weight: 500;
+}
+.service-group ul { list-style: none; padding: 0; margin: 0; }
+.service-group li {
+  padding: 10px 0;
+  font-size: 15px;
+  color: var(--ink);
+  border-bottom: 1px dashed var(--rule);
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.service-group li:first-child { border-top: 1px dashed var(--rule); }
+.service-group li .year {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--ink-mute);
+  white-space: nowrap;
+}
+
+/* ============ AWARDS ============ */
+.award-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+.award {
+  padding: 22px 24px;
+  border: 1px solid var(--rule);
+  border-radius: 14px;
+  background: var(--card);
+  position: relative;
+}
+.award.feature {
+  background: linear-gradient(135deg, rgba(227,80,47,0.08), rgba(78,63,135,0.04));
+  border-color: rgba(227,80,47,0.3);
+}
+.award .label {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+.award.feature .label { color: var(--accent); }
+.award h4 {
+  font-family: var(--serif);
+  font-size: 22px;
+  font-weight: 400;
+  margin: 0 0 6px;
+  line-height: 1.25;
+}
+.award p { margin: 0; font-size: 13px; color: var(--ink-soft); }
+.award .org { font-size: 13px; color: var(--ink-soft); }
+@media (max-width: 720px) {
+  .award-grid { grid-template-columns: 1fr; }
+}
+
+/* ============ CONTACT ============ */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+.contact-card {
+  padding: 22px 24px;
+  border: 1px solid var(--rule);
+  border-radius: 14px;
+  background: var(--card);
+}
+.contact-card .label {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  margin-bottom: 8px;
+}
+.contact-card .value {
+  font-family: var(--serif);
+  font-size: 22px;
+  line-height: 1.35;
+}
+.contact-card .value a { border: none; color: var(--ink); }
+.contact-card .value a:hover { color: var(--accent); }
+.contact-card .sub { font-size: 13px; color: var(--ink-soft); margin-top: 4px; }
+@media (max-width: 720px) { .contact-grid { grid-template-columns: 1fr; } }
+
+.profiles {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.profiles a {
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  padding: 8px 16px;
+  font-size: 13px;
+  font-family: var(--sans);
+  color: var(--ink);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.profiles a:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+
+/* ============ FOOTER ============ */
+footer {
+  border-top: 1px dashed var(--rule);
+  padding: 36px var(--gutter);
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  max-width: var(--container);
+  margin: 0 auto;
+}
+footer a { color: var(--ink-mute); border: none; }
+footer a:hover { color: var(--accent); }
+
+/* ============ CONSTELLATION (hero-only) ============ */
+.constellation {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  color: var(--constellation);
+  opacity: 0.85;
+  transition: color 0.4s, opacity 0.4s;
+}
+.constellation .hl {
+  animation: hl-pulse 6s ease-in-out infinite alternate;
+  transform-origin: center;
+}
+.constellation .hl-2 { animation-duration: 9s; animation-delay: -2s; }
+.constellation .hl-3 { animation-duration: 7s; animation-delay: -4s; }
+.constellation .hl-4 { animation-duration: 11s; animation-delay: -1s; }
+@keyframes hl-pulse {
+  from { opacity: 0.25; }
+  to   { opacity: 0.65; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .constellation .hl { animation: none; }
+}
+
+/* ============ THEME TOGGLE ============ */
+.theme-toggle {
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  border: 1px solid var(--rule);
+  background: transparent;
+  color: var(--ink);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s, color 0.2s;
+  margin-left: 8px;
+  padding: 0;
+}
+.theme-toggle:hover { border-color: var(--ink); }
+.theme-toggle svg { width: 16px; height: 16px; }
+.theme-toggle .icon-sun { display: none; }
+.theme-toggle .icon-moon { display: block; }
+:root[data-theme="dark"] .theme-toggle .icon-sun { display: block; }
+:root[data-theme="dark"] .theme-toggle .icon-moon { display: none; }
+
+/* ============ PUB LINKS ============ */
+.pub-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 12px;
+}
+.pub-link {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 5px 11px;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  color: var(--ink-soft);
+  text-decoration: none;
+  transition: background 0.18s, color 0.18s, border-color 0.18s;
+}
+.pub-link:hover {
+  background: var(--ink);
+  color: var(--bg);
+  border-color: var(--ink);
+}
+.pub-link.is-primary {
+  color: var(--accent);
+  border-color: rgba(227,80,47,0.4);
+}
+.pub-link.is-primary:hover {
+  background: var(--accent);
+  color: var(--bg);
+  border-color: var(--accent);
+}
+
+/* ============ FX ============ */
+@media (prefers-reduced-motion: no-preference) {
+  .reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.is-in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+</style>
+</head>
+<body>
+
+<header class="site-nav" id="nav">
+  <div class="site-nav-inner">
+    <a href="#top" class="brand">
+      <span class="brand-dots"><span></span><span></span></span>
+      <span>DZ &middot; Stevens</span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#about">About</a>
+      <a href="#research">Research</a>
+      <a href="#news">News</a>
+      <a href="#publications">Papers</a>
+      <a href="#teaching">Teaching</a>
+      <a href="#students">Students</a>
+      <a href="#service">Service</a>
+      <a href="#awards">Awards</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle color theme" title="Toggle theme">
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+    </button>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- =========== HERO =========== -->
+  <section class="hero">
+    <svg class="constellation" aria-hidden="true" preserveAspectRatio="xMidYMid slice"></svg>
+    <div class="hero-inner wrap">
+    <div class="eyebrow"><span class="dot"></span><span>DENGHUI ZHANG &middot; 张登辉 &middot; HOBOKEN, NJ</span></div>
+    <h1>
+      I study <em>human</em>, <em>data</em>,<br />
+      <em>artificial systems</em>,<br />
+      and their <em>interactions</em>.
+    </h1>
+    <p class="hero-sub">
+      Assistant Professor at <a href="https://www.stevens.edu/">Stevens Institute of Technology</a>,
+      affiliated with <a href="https://www.stevens.edu/siai">SIAI</a> and
+      <a href="https://www.stevens.edu/craft">CRAFT</a>.
+      My research builds safe and reliable Generative AI &mdash; particularly
+      around large language models, copyright leakage, and reasoning in
+      high-stakes domains.
+    </p>
+    <div class="cta-row">
+      <a class="btn primary" href="#contact">Get in touch <span class="arrow">&rarr;</span></a>
+      <a class="btn" href="#publications">Read my work</a>
+      <a class="btn" href="https://scholar.google.com/" target="_blank" rel="noopener">Google Scholar &nearr;</a>
+    </div>
+    <div class="hero-foot">
+      <span>SCROLL &darr;</span>
+      <div class="toc">
+        <a href="#about"><span class="n">01</span>About</a>
+        <a href="#research"><span class="n">02</span>Research</a>
+        <a href="#news"><span class="n">03</span>News</a>
+        <a href="#publications"><span class="n">04</span>Papers</a>
+        <a href="#teaching"><span class="n">05</span>Teaching</a>
+        <a href="#students"><span class="n">06</span>Students</a>
+        <a href="#service"><span class="n">07</span>Service</a>
+        <a href="#awards"><span class="n">08</span>Awards</a>
+      </div>
+    </div>
+    </div><!-- /.hero-inner -->
+  </section>
+
+  <!-- =========== ABOUT =========== -->
+  <section class="section" id="about">
+    <div class="wrap section-grid">
+      <div class="section-head">
+        <div class="portrait portrait--fallback">
+          <img src="./assets/portrait.jpg" alt="Portrait of Denghui Zhang"
+               onload="this.parentNode.classList.remove('portrait--fallback');"
+               onerror="this.style.display='none';" />
+        </div>
+        <span class="eyebrow">01 / About</span>
+        <h2>Where I am,<br />and <em>what</em> I do.</h2>
+      </div>
+      <div class="about-text">
+        <p>
+          <strong>Greetings.</strong> I am an Assistant Professor at
+          <a href="https://www.stevens.edu/">Stevens Institute of Technology</a>,
+          also affiliated with the
+          <a href="https://www.stevens.edu/siai">Stevens Institute for Artificial Intelligence (SIAI)</a>
+          and the
+          <a href="https://www.stevens.edu/craft">Center for Research toward Advancing Financial Technologies (CRAFT)</a>.
+        </p>
+        <p>
+          I received my Ph.D. from <a href="https://www.rutgers.edu/">Rutgers University</a>,
+          where I was fortunate to work with Dr. Hui Xiong. Before academia, I
+          spent time at Amazon Science, Baidu Research, and NEC Labs.
+        </p>
+        <p>
+          My work has appeared in top venues across machine learning and
+          information systems &mdash; <strong>IEEE TKDE, Nature Portfolio, IEEE BigData</strong>
+          and conference proceedings such as <strong>NeurIPS, KDD, ACL, EMNLP,
+          NAACL, ICML, AAAI, IJCAI, CIST</strong>.
+        </p>
+
+        <div class="about-cards">
+          <div class="about-card">
+            <div class="label">Education</div>
+            <div class="title">Ph.D.</div>
+            <p>Rutgers University, advised by Dr.&nbsp;Hui Xiong.</p>
+          </div>
+          <div class="about-card">
+            <div class="label">Research</div>
+            <div class="title">Trustworthy GenAI</div>
+            <p>LLM mechanistics, safety, and data&nbsp;copyright.</p>
+          </div>
+          <div class="about-card">
+            <div class="label">Service</div>
+            <div class="title">Area Chair</div>
+            <p>NeurIPS &middot; ICLR &middot; ACL &middot; EMNLP, plus reviewing for Nature Communications, TKDE, MISQ, ISR, IJOC.</p>
+          </div>
+        </div>
+
+        <div class="prospective">
+          <div class="label">To prospective students</div>
+          <p>
+            Feel free to email me with your CV. Once we have a mutual
+            commitment, I will exert my utmost effort to help you grow.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========== RESEARCH =========== -->
+  <section class="section" id="research">
+    <div class="wrap section-grid">
+      <div class="section-head">
+        <span class="eyebrow">02 / Research</span>
+        <h2>Building <em>safe</em><br />and reliable<br /><em>GenAI</em>.</h2>
+      </div>
+      <p class="research-text">
+        My research focuses on developing <em>safe</em> and <em>reliable</em>
+        Generative AI systems, particularly in the context of Large Language
+        Models &mdash; spanning fundamental <em>reasoning</em> to
+        domain-specific challenges in <em>finance</em> and <em>regulation</em>.
+      </p>
+    </div>
+  </section>
+
+  <!-- =========== NEWS =========== -->
+  <section class="section" id="news">
+    <div class="wrap section-grid">
+      <div class="section-head">
+        <span class="eyebrow">03 / News</span>
+        <h2><em>Recent</em><br />activity.</h2>
+      </div>
+      <ul class="news-list">
+        <li class="news-item">
+          <span class="news-date">02 / 2026</span>
+          <div class="news-body"><span class="news-tag">New</span> Preprint on <strong>Copyright Detective</strong> &mdash; a forensic system to evidence LLMs&rsquo; flickering copyright leakage risks.</div>
+        </li>
+        <li class="news-item">
+          <span class="news-date">01 / 2026</span>
+          <div class="news-body">Three hard-ML papers accepted to <strong>ICLR 2026</strong>.</div>
+        </li>
+        <li class="news-item">
+          <span class="news-date">12 / 2025</span>
+          <div class="news-body">Gave a demo talk at <strong>ICIS SIG TECH</strong> workshop.</div>
+        </li>
+        <li class="news-item">
+          <span class="news-date">12 / 2025</span>
+          <div class="news-body">Talk on copyright violation detection at <strong>NeurIPS</strong> workshop on Socially Responsible Foundation Models.</div>
+        </li>
+        <li class="news-item">
+          <span class="news-date">08 / 2025</span>
+          <div class="news-body">Paper on <strong>Sparse ToM</strong> covered by <a href="#">MIT Technology Review</a>.</div>
+        </li>
+        <li class="news-item">
+          <span class="news-date">08 / 2025</span>
+          <div class="news-body">Invited to serve as <strong>Area Chair</strong> for ICLR 2025.</div>
+        </li>
+        <li class="news-item">
+          <span class="news-date">08 / 2025</span>
+          <div class="news-body">Five papers accepted to <strong>EMNLP 2025</strong>.</div>
+        </li>
+        <li class="news-item">
+          <span class="news-date">05 / 2025</span>
+          <div class="news-body">Hosting a GenAI workshop at <strong>ICDM 2025</strong> on fintech and regulation.</div>
+        </li>
+        <li class="news-item">
+          <span class="news-date">05 / 2025</span>
+          <div class="news-body">Invited to serve as <strong>Area Chair</strong> for EMNLP 2025.</div>
+        </li>
+        <li class="news-item">
+          <span class="news-date">05 / 2025</span>
+          <div class="news-body">Check our <a href="#">NAACL LLM copyright tutorial slides</a>.</div>
+        </li>
+        <li class="news-item">
+          <span class="news-date">05 / 2025</span>
+          <div class="news-body">Position paper on handling complex copyright risks accepted by <strong>ICML 2025</strong>.</div>
+        </li>
+        <li class="news-item">
+          <span class="news-date">09 / 2024</span>
+          <div class="news-body">Paper analyzing copyright behavior of LLMs accepted to <strong>EMNLP 2024 (Main)</strong>.</div>
+        </li>
+        <li class="news-item">
+          <span class="news-date">08 / 2024</span>
+          <div class="news-body">Presenting LLM copyright study at <strong>CIKM</strong> Data-centric AI workshop.</div>
+        </li>
+        <li class="news-item">
+          <span class="news-date">07 / 2024</span>
+          <div class="news-body">Awarded the <strong>OpenAI Researcher Access Program</strong>.</div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- =========== PUBLICATIONS =========== -->
+  <section class="section" id="publications">
+    <div class="wrap section-grid">
+      <div class="section-head">
+        <span class="eyebrow">04 / Publications</span>
+        <h2>What I&rsquo;ve<br /><em>written</em>.</h2>
+        <p style="font-family:var(--sans);font-size:13px;color:var(--ink-mute);margin-top:20px;max-width:240px;line-height:1.5;">
+          Also on <a href="https://scholar.google.com/" target="_blank">Google Scholar</a>. * indicates corresponding author.
+        </p>
+      </div>
+      <div>
+
+        <div class="pub-group">
+          <h3>Preprints</h3>
+          <ul class="pub-list">
+            <li class="pub">
+              <span class="year">2025</span>
+              <div>
+                <h4><a href="#">Large Language Models as Virtual Survey Respondents: Evaluating Sociodemographic Response Generation</a></h4>
+                <p class="authors">Jianpeng Zhao, Chenyu Yuan, Weiming Luo, Haoling Xie, Guangwei Zhang, Steven Jige Quan, Zixuan Yuan, Pengyang Wang, <strong>Denghui Zhang*</strong></p>
+                <span class="venue">Under Review &middot; TKDD 2025</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="pub-group">
+          <h3>Published <span class="hint">selected, reverse chronological</span></h3>
+          <ul class="pub-list">
+
+            <li class="pub" data-pdf="https://arxiv.org/abs/2602.05252" data-demo="https://copyright-detective.streamlit.app/">
+              <span class="year">2026</span>
+              <div>
+                <h4><a href="https://arxiv.org/abs/2602.05252" target="_blank" rel="noopener">Copyright Detective: A Forensic System to Evidence LLMs&rsquo; Flickering Copyright Leakage Risks</a></h4>
+                <p class="authors"><strong>Denghui Zhang*</strong> et al.</p>
+                <span class="venue">ACL 2026 Demo Track</span>
+                <span class="badges"><span class="badge feature">Demo</span></span>
+              </div>
+            </li>
+
+            <li class="pub">
+              <span class="year">2026</span>
+              <div>
+                <h4><a href="#">Accelerating LLM Fine-Tuning via Embedding Knowledge Transfer</a></h4>
+                <p class="authors">Meishu Peng, Ziwen Zhang, Yi Xiang, Pengyang Wang, Zixuan Yuan, <strong>Denghui Zhang*</strong></p>
+                <span class="venue">ACL 2026 (Findings)</span>
+              </div>
+            </li>
+
+            <li class="pub">
+              <span class="year">2026</span>
+              <div>
+                <h4><a href="#">RM-R1: Reward Modeling as Reasoning</a></h4>
+                <p class="authors">Xiusi Chen, Gaoxiang Li, Ziqi Wang, Bowen Jin, Cheng Qian, Yu Wang, Hongru Wang, <strong>Denghui Zhang</strong>, Tong Zhang, Hanghang Tong, Heng Ji</p>
+                <span class="venue">ICLR 2026 (Main)</span>
+              </div>
+            </li>
+
+            <li class="pub">
+              <span class="year">2026</span>
+              <div>
+                <h4><a href="#">Randomized Antipodal Search Done Right for Data Pareto Improvement of LLM Unlearning</a></h4>
+                <p class="authors">Ziwen Liu, Huawei Lin, Yide Ran, <strong>Denghui Zhang</strong>, Jianwen Xie, Chuan Li, Weijie Zhao, Zhaozhuo Xu</p>
+                <span class="venue">ICLR 2026 (Main)</span>
+              </div>
+            </li>
+
+            <li class="pub">
+              <span class="year">2026</span>
+              <div>
+                <h4><a href="#">Mitigating Non-IID Drift in Zeroth-Order Federated LLM Fine-Tuning with Transferable Sparsity</a></h4>
+                <p class="authors">Yide Ran, Wentao Guo, Jingwei Sun, Yanzhou Pan, Xiaodong Yu, Hao Wang, Jianwen Xie, Yiran Chen, <strong>Denghui Zhang</strong>, Zhaozhuo Xu</p>
+                <span class="venue">ICLR 2026 (Main)</span>
+              </div>
+            </li>
+
+            <li class="pub" data-pdf="https://www.nature.com/articles/s44387-025-00031-9">
+              <span class="year">2025</span>
+              <div>
+                <h4><a href="https://www.nature.com/articles/s44387-025-00031-9" target="_blank" rel="noopener">How Large Language Models Encode Theory-of-Mind: A Study on Sparse Parameter Patterns</a></h4>
+                <p class="authors">Yuheng Wu, Wentao Guo, Zirui Liu, Heng Ji, Zhaozhuo Xu*, <strong>Denghui Zhang*</strong></p>
+                <span class="venue">Nature Partner Journal on Artificial Intelligence, 2025</span>
+                <span class="badges"><span class="badge feature">MIT Tech Review</span></span>
+              </div>
+            </li>
+
+            <li class="pub" data-pdf="https://aclanthology.org/2025.findings-emnlp.855/">
+              <span class="year">2025</span>
+              <div>
+                <h4><a href="https://aclanthology.org/2025.findings-emnlp.855/" target="_blank" rel="noopener">Profiling LLM&rsquo;s Copyright Infringement Risks under Adversarial Persuasive Prompting</a></h4>
+                <p class="authors">Jikai Long, Ming Liu, Xiusi Chen, Jialiang Xu, Shenglan Li, Zhaozhuo Xu*, <strong>Denghui Zhang*</strong></p>
+                <span class="venue">EMNLP 2025 (Findings)</span>
+              </div>
+            </li>
+
+            <li class="pub" data-pdf="https://aclanthology.org/2025.findings-emnlp.571/">
+              <span class="year">2025</span>
+              <div>
+                <h4><a href="https://aclanthology.org/2025.findings-emnlp.571/" target="_blank" rel="noopener">ISACL: Internal State Analyzer for Copyrighted Training Data Leakage</a></h4>
+                <p class="authors">Guangwei Zhang, Qisheng Su, Jiateng Liu, Cheng Qian, Yanzhou Pan, Yanjie Fu, <strong>Denghui Zhang*</strong></p>
+                <span class="venue">EMNLP 2025 (Findings)</span>
+              </div>
+            </li>
+
+            <li class="pub" data-pdf="https://aclanthology.org/2025.findings-emnlp.366/">
+              <span class="year">2025</span>
+              <div>
+                <h4><a href="https://aclanthology.org/2025.findings-emnlp.366/" target="_blank" rel="noopener">SafeSwitch: Steering Unsafe LLM Behavior via Internal Activation Signals</a></h4>
+                <p class="authors">Peixuan Han, Cheng Qian, Xiusi Chen, Yuji Zhang, Heng Ji, <strong>Denghui Zhang*</strong></p>
+                <span class="venue">EMNLP 2025 (Findings)</span>
+              </div>
+            </li>
+
+            <li class="pub" data-pdf="https://arxiv.org/pdf/2412.13549">
+              <span class="year">2025</span>
+              <div>
+                <h4><a href="https://arxiv.org/pdf/2412.13549" target="_blank" rel="noopener">EscapeBench: Towards Advancing Creative Intelligence of Language Model Agents</a></h4>
+                <p class="authors">Cheng Qian, Peixuan Han, Qinyu Luo, Bingxiang He, Xiusi Chen, Yuji Zhang, Hongyi Du, Jiarui Yao, Xiaocheng Yang, <strong>Denghui Zhang</strong>, Yunzhu Li, Heng Ji</p>
+                <span class="venue">ACL 2025 (Main)</span>
+              </div>
+            </li>
+
+            <li class="pub" data-pdf="https://openreview.net/pdf?id=dG1HwKMYbC">
+              <span class="year">2024</span>
+              <div>
+                <h4><a href="https://openreview.net/pdf?id=dG1HwKMYbC" target="_blank" rel="noopener">FinCon: A Synthesized LLM Multi-Agent System with Conceptual Verbal Reinforcement for Enhanced Financial Decision Making</a></h4>
+                <p class="authors">Yangyang Yu, Zhiyuan Yao, Haohang Li, Zhiyang Deng, Yuechen Jiang, Yupeng Cao, Zhi Chen, Jordan W. Suchow, Zhenyu Cui, Rong Liu, Zhaozhuo Xu, <strong>Denghui Zhang</strong>, et al.</p>
+                <span class="venue">NeurIPS 2024 (Main)</span>
+              </div>
+            </li>
+
+            <li class="pub" data-pdf="https://arxiv.org/abs/2311.13743">
+              <span class="year">2024</span>
+              <div>
+                <h4><a href="https://arxiv.org/abs/2311.13743" target="_blank" rel="noopener">FinMem: A Performance-Enhanced LLM Trading Agent with Layered Memory and Character Design</a></h4>
+                <p class="authors">Yangyang Yu, Haohang Li, Zhi Chen, Yuechen Jiang, Yang Li, <strong>Denghui Zhang</strong>, Rong Liu, Jordan W. Suchow, Khaldoun Khashanah</p>
+                <span class="venue">IEEE TBD &middot; ICLR 2024 Workshop on LLM Agents</span>
+              </div>
+            </li>
+
+            <li class="pub" data-pdf="https://ojs.aaai.org/index.php/AAAI/article/view/29601">
+              <span class="year">2024</span>
+              <div>
+                <h4><a href="https://ojs.aaai.org/index.php/AAAI/article/view/29601" target="_blank" rel="noopener">Self-Paced Unified Representation Learning for Hierarchical Multi-Label Classification</a></h4>
+                <p class="authors">Zixuan Yuan, Hao Liu, Haoyi Zhou, <strong>Denghui Zhang</strong>, Xiao Zhang, Hao Wang, Hui Xiong</p>
+                <span class="venue">AAAI 2024</span>
+              </div>
+            </li>
+
+            <li class="pub" data-pdf="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4389063">
+              <span class="year">2022</span>
+              <div>
+                <h4><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4389063" target="_blank" rel="noopener">Acqui-hiring or Acqui-quitting: Data-driven Post-M&amp;A Turnover Prediction via a Dual-fit GNN Model</a></h4>
+                <p class="authors"><strong>Denghui Zhang</strong>, Hao Zhong, Jingyuan Yang</p>
+                <span class="venue">CIST 2022 &middot; INFORMS Conference on Information Systems and Technology</span>
+              </div>
+            </li>
+
+            <li class="pub">
+              <span class="year">2022</span>
+              <div>
+                <h4><a href="#">Towards Learning Disentangled Representations for Time Series</a></h4>
+                <p class="authors">Yuening Li, Zhengzhang Chen, Daochen Zha, Mengnan Du, <strong>Denghui Zhang</strong>, Haifeng Chen, Xia Hu</p>
+                <span class="venue">KDD 2022</span>
+              </div>
+            </li>
+
+            <li class="pub" data-pdf="https://arxiv.org/pdf/2112.12876.pdf">
+              <span class="year">2022</span>
+              <div>
+                <h4><a href="https://arxiv.org/pdf/2112.12876.pdf" target="_blank" rel="noopener">Learning to Walk with Dual Agents Reinforcement Learning for Knowledge Graph Reasoning</a></h4>
+                <p class="authors"><strong>Denghui Zhang*</strong>, Zixuan Yuan*, Hao Liu, Xiaodong Lin, Hui Xiong</p>
+                <span class="venue">AAAI 2022</span>
+              </div>
+            </li>
+
+            <li class="pub">
+              <span class="year">2021</span>
+              <div>
+                <h4><a href="#">Domain-oriented Language Modeling with Adaptive Hybrid Masking and Optimal Transport Alignment</a></h4>
+                <p class="authors"><strong>Denghui Zhang</strong>, Zixuan Yuan, Yanchi Liu, Hao Liu, Fuzhen Zhuang, Hui Xiong, Haifeng Chen</p>
+                <span class="venue">KDD 2021</span>
+              </div>
+            </li>
+
+            <li class="pub" data-pdf="https://ieeexplore.ieee.org/document/8450054">
+              <span class="year">2018</span>
+              <div>
+                <h4><a href="https://ieeexplore.ieee.org/document/8450054" target="_blank" rel="noopener">Link Prediction in Knowledge Graphs: A Hierarchy-Constrained Approach</a></h4>
+                <p class="authors">Manling Li, Yuanzhuo Wang, <strong>Denghui Zhang</strong>, Yantao Jia, Xueqi Cheng</p>
+                <span class="venue">IEEE Transactions on Big Data</span>
+              </div>
+            </li>
+
+            <li class="pub">
+              <span class="year">2018</span>
+              <div>
+                <h4><a href="#">Path-Based Attention Neural Model for Fine-Grained Entity Typing</a></h4>
+                <p class="authors"><strong>Denghui Zhang</strong>, Manling Li, Pengshan Cai, Yantao Jia, Xueqi Cheng</p>
+                <span class="venue">AAAI 2018</span>
+              </div>
+            </li>
+
+            <li class="pub">
+              <span class="year">2017</span>
+              <div>
+                <h4><a href="#">Efficient Parallel Translating Embedding for Knowledge Graphs</a></h4>
+                <p class="authors"><strong>Denghui Zhang</strong>, Manling Li, Yantao Jia, Yuanzhuo Wang, Xueqi Cheng</p>
+                <span class="venue">WI 2017</span>
+              </div>
+            </li>
+
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =========== TEACHING =========== -->
+  <section class="section" id="teaching">
+    <div class="wrap section-grid">
+      <div class="section-head">
+        <span class="eyebrow">05 / Teaching</span>
+        <h2>What I&rsquo;ve<br /><em>taught</em>.</h2>
+      </div>
+      <div class="teach-list">
+        <article class="teach-item">
+          <div class="meta">Graduate &middot; Spring 2024 &middot; Stevens Institute of Technology</div>
+          <h4>Big Data Technology</h4>
+          <p>MapReduce, Hadoop, Spark, streaming data, large-scale machine learning.</p>
+        </article>
+        <article class="teach-item">
+          <div class="meta">Undergraduate &middot; Spring 2022 &middot; Rutgers University</div>
+          <h4>Data Warehousing &amp; Data Mining</h4>
+          <p>The foundations of data mining and machine learning, with Python, Pandas, and Orange for quick analytics.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========== STUDENTS =========== -->
+  <section class="section" id="students">
+    <div class="wrap section-grid">
+      <div class="section-head">
+        <span class="eyebrow">06 / Students</span>
+        <h2>Where they<br /><em>are heading</em>.</h2>
+      </div>
+      <ul class="alumni-list">
+        <li>
+          <div>
+            <div class="name">Rushi Wang</div>
+            <div class="where">Intern &middot; UIUC Master <span class="arrow">&rarr;</span> Ph.D., Kelley School of Business, Indiana University</div>
+          </div>
+        </li>
+        <li>
+          <div>
+            <div class="name">Jiateng Liu</div>
+            <div class="where">Intern &middot; UIUC Master <span class="arrow">&rarr;</span> Ph.D. in CS, UIUC</div>
+          </div>
+        </li>
+        <li>
+          <div>
+            <div class="name">Dong Shu</div>
+            <div class="where">Intern &middot; Northwestern <span class="arrow">&rarr;</span> Ph.D. in CS, Northwestern</div>
+          </div>
+        </li>
+        <li>
+          <div>
+            <div class="name">Guangwei Zhang</div>
+            <div class="where">Intern <span class="arrow">&rarr;</span> Ph.D. in CS, Arizona State University</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- =========== SERVICE =========== -->
+  <section class="section" id="service">
+    <div class="wrap section-grid">
+      <div class="section-head">
+        <span class="eyebrow">07 / Service</span>
+        <h2>Where I<br /><em>serve</em>.</h2>
+      </div>
+      <div>
+
+        <div class="service-group">
+          <h3>Area Chair</h3>
+          <ul>
+            <li>NeurIPS <span class="year">2025</span></li>
+            <li>ICLR <span class="year">2025</span></li>
+            <li>ACL <span class="year">2025</span></li>
+            <li>EMNLP <span class="year">2025</span></li>
+          </ul>
+        </div>
+
+        <div class="service-group">
+          <h3>Workshop &amp; Tutorial</h3>
+          <ul>
+            <li>Workshop on GenAI for Fintech &amp; Regulation &mdash; ICDM <span class="year">2025</span></li>
+            <li>NAACL LLM Copyright Tutorial <span class="year">2025</span></li>
+          </ul>
+        </div>
+
+        <div class="service-group">
+          <h3>Session Chair</h3>
+          <ul>
+            <li>AI-driven Business Analytics &mdash; ICIS <span class="year">2023</span></li>
+            <li>Graph Learning &amp; Social Networks &mdash; ACM SIGKDD <span class="year">2022</span></li>
+          </ul>
+        </div>
+
+        <div class="service-group">
+          <h3>Program Committee</h3>
+          <ul>
+            <li>ACM SIGKDD <span class="year">2022&ndash;2024</span></li>
+            <li>ACL <span class="year">2022</span></li>
+            <li>EMNLP <span class="year">2024</span></li>
+            <li>AAAI <span class="year">2021&ndash;2024</span></li>
+            <li>IJCAI <span class="year">2021, 2022</span></li>
+            <li>WSDM <span class="year">2022</span></li>
+            <li>CIKM <span class="year">2020</span></li>
+            <li>ICIS, PACIS, WITS <span class="year">2022</span></li>
+          </ul>
+        </div>
+
+        <div class="service-group">
+          <h3>Journal Reviewer</h3>
+          <ul>
+            <li>Nature Communications</li>
+            <li>IEEE Transactions on Knowledge and Data Engineering (TKDE)</li>
+            <li>MIS Quarterly (MISQ)</li>
+            <li>Information Systems Research (ISR)</li>
+            <li>INFORMS Journal on Computing (IJOC)</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =========== AWARDS =========== -->
+  <section class="section" id="awards">
+    <div class="wrap section-grid">
+      <div class="section-head">
+        <span class="eyebrow">08 / Awards</span>
+        <h2><em>Recognition</em><br />&amp; honors.</h2>
+      </div>
+      <div class="award-grid">
+
+        <div class="award feature">
+          <div class="label"><span>NSF Research Grant</span><span>2026</span></div>
+          <h4>NSF Award ($100K Research Grant)</h4>
+          <p class="org">National Science Foundation &middot; via CRAFT for &ldquo;Token-efficient Regulation-aware Financial LLM Agent.&rdquo;</p>
+        </div>
+
+        <div class="award feature">
+          <div class="label"><span>NSF NAIRR Pilot</span><span>2024</span></div>
+          <h4>NSF NAIRR Pilot Program Award</h4>
+          <p class="org">National Science Foundation &middot; National Artificial Intelligence Research Resource Pilot Program.</p>
+        </div>
+
+        <div class="award feature">
+          <div class="label"><span>OpenAI</span><span>2024</span></div>
+          <h4>OpenAI Researcher Access Program</h4>
+          <p class="org">Selected for the OpenAI Researcher Access Program.</p>
+        </div>
+
+        <div class="award">
+          <div class="label"><span>Teaching</span><span>2024</span></div>
+          <h4>Teaching Excellence Award</h4>
+          <p class="org">Stevens Institute of Technology &middot; recognition for outstanding teaching performance and student engagement.</p>
+        </div>
+
+        <div class="award">
+          <div class="label"><span>Best Student Paper</span><span>2023</span></div>
+          <h4>ICIS Best Student Paper Award</h4>
+          <p class="org">ICIS 2023 &middot; for &ldquo;Graph Learning of Multifaceted Motivations for Online Political Engagement Prediction in Counter-party Social Networks.&rdquo;</p>
+        </div>
+
+        <div class="award">
+          <div class="label"><span>Fellowship</span><span>2022</span></div>
+          <h4>Dean&rsquo;s Dissertation Fellowship</h4>
+          <p class="org">Rutgers University &middot; prestigious fellowship awarded to outstanding doctoral candidates.</p>
+        </div>
+
+        <div class="award">
+          <div class="label"><span>Scholarship</span><span>2022</span></div>
+          <h4>Student Scholarship</h4>
+          <p class="org">INFORMS Workshop on Data Science &middot; competitive scholarship for workshop participation.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =========== CONTACT =========== -->
+  <section class="section" id="contact">
+    <div class="wrap section-grid">
+      <div class="section-head">
+        <span class="eyebrow">09 / Contact</span>
+        <h2>Get <em>in touch</em>.</h2>
+      </div>
+      <div>
+        <p style="font-family:var(--serif);font-size:24px;line-height:1.4;color:var(--ink);margin:0 0 36px;max-width:520px;">
+          I welcome inquiries from prospective students, collaborators, and
+          anyone interested in my research. Please feel free to reach&nbsp;out.
+        </p>
+        <div class="contact-grid">
+          <div class="contact-card">
+            <div class="label">Email</div>
+            <div class="value"><a href="mailto:dzhang42@stevens.edu">dzhang42@stevens.edu</a></div>
+          </div>
+          <div class="contact-card">
+            <div class="label">Office</div>
+            <div class="value">Hoboken, NJ</div>
+            <div class="sub">Stevens Institute of Technology</div>
+          </div>
+        </div>
+        <div class="profiles">
+          <a href="https://scholar.google.com/" target="_blank" rel="noopener">Google Scholar &nearr;</a>
+          <a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn &nearr;</a>
+          <a href="https://twitter.com/" target="_blank" rel="noopener">Twitter / X &nearr;</a>
+          <a href="https://github.com/" target="_blank" rel="noopener">GitHub &nearr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <span>&copy; 2026 Denghui Zhang &middot; 张登辉. All rights reserved.</span>
+  <span>Stevens Institute of Technology &middot; Assistant Professor</span>
+</footer>
+
+<script>
+/* =========================================================
+ * Theme toggle (light / dark, persisted to localStorage)
+ * ======================================================= */
+(function initTheme() {
+  const root = document.documentElement;
+  const saved = localStorage.getItem('theme');
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  if (saved === 'dark' || (!saved && prefersDark)) root.dataset.theme = 'dark';
+  document.getElementById('themeToggle').addEventListener('click', () => {
+    const next = root.dataset.theme === 'dark' ? 'light' : 'dark';
+    root.dataset.theme = next;
+    localStorage.setItem('theme', next);
+  });
+})();
+
+/* =========================================================
+ * SVG constellation background — random points + faint
+ * connecting lines + a few colored "glowing" highlights
+ * ======================================================= */
+(function buildConstellationOnce() {
+  const svg = document.querySelector('.constellation');
+  const hero = document.querySelector('.hero');
+  if (!svg || !hero) return;
+  const COLORS = ['#E3502F', '#4E3F87'];
+
+  function build() {
+    const w = hero.offsetWidth || window.innerWidth;
+    const h = Math.max(hero.offsetHeight, 600);
+    svg.setAttribute('viewBox', `0 0 ${w} ${h}`);
+    const step = 110;
+    const cols = Math.ceil(w / step) + 1;
+    const rows = Math.ceil(h / step) + 1;
+    const pts = [];
+    for (let r = 0; r < rows; r++) {
+      for (let c = 0; c < cols; c++) {
+        // jitter each grid point so it doesn't look like a grid
+        pts.push({
+          x: c * step + (Math.random() - 0.5) * step * 0.85,
+          y: r * step + (Math.random() - 0.5) * step * 0.85
+        });
+      }
+    }
+    const parts = [];
+    // Lines between nearby points
+    const maxDist = 150;
+    for (let i = 0; i < pts.length; i++) {
+      for (let j = i + 1; j < pts.length; j++) {
+        const dx = pts[i].x - pts[j].x;
+        const dy = pts[i].y - pts[j].y;
+        const d = Math.hypot(dx, dy);
+        if (d < maxDist) {
+          const op = ((1 - d / maxDist) * 0.18).toFixed(3);
+          parts.push(
+            `<line x1="${pts[i].x.toFixed(1)}" y1="${pts[i].y.toFixed(1)}" ` +
+            `x2="${pts[j].x.toFixed(1)}" y2="${pts[j].y.toFixed(1)}" ` +
+            `stroke="currentColor" stroke-width="0.5" opacity="${op}" />`
+          );
+        }
+      }
+    }
+    // Small dots at every grid point
+    pts.forEach(p => {
+      const r = 0.7 + Math.random() * 0.8;
+      const op = (0.18 + Math.random() * 0.28).toFixed(3);
+      parts.push(
+        `<circle cx="${p.x.toFixed(1)}" cy="${p.y.toFixed(1)}" r="${r.toFixed(2)}" fill="currentColor" opacity="${op}" />`
+      );
+    });
+    // A few glowing colored highlights
+    const N = 6;
+    for (let i = 0; i < N; i++) {
+      const p = pts[Math.floor(Math.random() * pts.length)];
+      const color = COLORS[i % COLORS.length];
+      const rad = 3 + Math.random() * 3.5;
+      parts.push(
+        `<circle class="hl hl-${(i % 4) + 1}" cx="${p.x.toFixed(1)}" cy="${p.y.toFixed(1)}" ` +
+        `r="${rad.toFixed(1)}" fill="${color}" filter="url(#cglow)" />`
+      );
+    }
+    svg.innerHTML =
+      `<defs><filter id="cglow" x="-50%" y="-50%" width="200%" height="200%">` +
+      `<feGaussianBlur stdDeviation="4" result="b"/>` +
+      `<feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>` +
+      `</filter></defs>` + parts.join('');
+  }
+
+  build();
+  let t;
+  window.addEventListener('resize', () => {
+    clearTimeout(t);
+    t = setTimeout(build, 200);
+  });
+})();
+
+/* =========================================================
+ * Render PDF / Code / Slides / BibTeX buttons on each paper —
+ * only when explicit data-* attributes are set. No placeholders.
+ *
+ * HOW TO CUSTOMIZE: add data-* attributes to any <li class="pub">
+ * for the buttons you want, e.g.
+ *   <li class="pub"
+ *       data-pdf="https://arxiv.org/abs/..."
+ *       data-code="https://github.com/..."
+ *       data-slides="..."
+ *       data-bibtex="..."
+ *       data-project="..."
+ *       data-demo="..."
+ *       data-video="...">
+ * Buttons only render for non-empty values. Papers without any
+ * data-* attribute show no buttons at all.
+ * ======================================================= */
+(function decoratePapers() {
+  const TYPES = [
+    { key: 'pdf', label: 'PDF', primary: true },
+    { key: 'code', label: 'Code' },
+    { key: 'slides', label: 'Slides' },
+    { key: 'project', label: 'Project' },
+    { key: 'demo', label: 'Demo' },
+    { key: 'video', label: 'Video' },
+    { key: 'bibtex', label: 'BibTeX' }
+  ];
+  document.querySelectorAll('li.pub').forEach(pub => {
+    const content = pub.querySelector(':scope > div');
+    if (!content) return;
+    const wrap = document.createElement('div');
+    wrap.className = 'pub-links';
+    TYPES.forEach(t => {
+      const v = pub.dataset[t.key];
+      if (!v) return;
+      const a = document.createElement('a');
+      a.className = 'pub-link' + (t.primary ? ' is-primary' : '');
+      a.href = v;
+      a.target = '_blank';
+      a.rel = 'noopener';
+      a.textContent = t.label;
+      wrap.appendChild(a);
+    });
+    if (wrap.children.length) content.appendChild(wrap);
+  });
+})();
+
+/* =========================================================
+ * Subtle reveal on scroll
+ * ======================================================= */
+(function reveal() {
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('is-in');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.section, .hero').forEach(el => {
+    el.classList.add('reveal');
+    io.observe(el);
+  });
+})();
+
+/* =========================================================
+ * Nav border on scroll
+ * ======================================================= */
+(function navBorder() {
+  const nav = document.getElementById('nav');
+  const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 8);
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+})();
+</script>
+
+</body>
+</html>
