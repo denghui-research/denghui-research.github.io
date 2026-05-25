@@ -938,6 +938,41 @@ footer a:hover { color: var(--accent); }
   border-color: var(--accent);
 }
 
+/* ============ CAMPUS BANNER ============ */
+.campus {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  background: var(--bg);
+  border-top: 1px dashed var(--rule);
+}
+.campus img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 2000 / 648;
+  object-fit: cover;
+}
+.campus figcaption {
+  position: absolute;
+  bottom: 18px;
+  right: 28px;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.9);
+  text-shadow: 0 1px 6px rgba(0,0,0,0.5);
+  padding: 6px 10px;
+  background: rgba(0,0,0,0.18);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 999px;
+}
+:root[data-theme="dark"] .campus img { filter: brightness(0.78) saturate(0.95); }
+
 /* ============ FX ============ */
 @media (prefers-reduced-motion: no-preference) {
   .reveal {
@@ -1721,6 +1756,14 @@ footer a:hover { color: var(--accent); }
       </div>
     </div>
   </section>
+
+  <!-- =========== CAMPUS BANNER =========== -->
+  <figure class="campus">
+    <img src="./assets/stevens-campus.jpg"
+         alt="Stevens Institute of Technology campus in Hoboken, NJ, overlooking Manhattan across the Hudson River"
+         loading="lazy" decoding="async" width="2000" height="648" />
+    <figcaption>Stevens &middot; Hoboken, NJ &middot; view of Manhattan across the Hudson</figcaption>
+  </figure>
 
 </main>
 
