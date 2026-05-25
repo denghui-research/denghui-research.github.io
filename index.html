@@ -955,15 +955,15 @@ footer a:hover { color: var(--accent); }
   height: 100%;
   object-fit: cover;
   object-position: center 80%;       /* favor the campus + skyline band */
-  opacity: 0.16;
+  opacity: 0.4;
   z-index: 0;
   pointer-events: none;
   user-select: none;
-  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.55) 35%, rgba(0,0,0,0.9) 100%);
-          mask-image: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.55) 35%, rgba(0,0,0,0.9) 100%);
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.7) 30%, rgba(0,0,0,1) 80%);
+          mask-image: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.7) 30%, rgba(0,0,0,1) 80%);
 }
 #contact > .wrap { position: relative; z-index: 1; }
-:root[data-theme="dark"] .contact-bg { opacity: 0.22; filter: brightness(0.7) saturate(0.9); }
+:root[data-theme="dark"] .contact-bg { opacity: 0.45; filter: brightness(0.7) saturate(0.9); }
 
 /* ============ FX ============ */
 @media (prefers-reduced-motion: no-preference) {
