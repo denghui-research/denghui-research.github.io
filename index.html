@@ -8,7 +8,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 
 <style>
 :root {
@@ -813,31 +813,42 @@ footer a:hover { color: var(--accent); }
 }
 
 /* ============ STYLE TOGGLE (Magazine A / Scholar B) ============ */
-/* Default = Magazine (current Instrument Serif + italic gradient). */
-/* data-style="scholar" overrides typography family + emphasis style. */
+/* Default = Magazine (Instrument Serif + orange→purple gradient italics).  */
+/* data-style="scholar" = Fraunces + deep-teal italic accents,             */
+/*   in the visual register of ai-native-academia.github.io.               */
 
 :root[data-style="scholar"] {
-  --serif: "Source Serif 4", "Source Serif Pro", Georgia, serif;
+  --serif: "Fraunces", "Source Serif 4", Georgia, serif;
+  --bg: #FAF8F4;          /* slightly lighter cream */
+  --scholar-accent: #145366;
 }
-/* Replace italic-gradient emphasis with plain bold in scholar mode */
+:root[data-style="scholar"][data-theme="dark"] {
+  --bg: #14130F;
+  --scholar-accent: #6FB6CC;
+}
+/* Italic emphasis keeps italics but trades the orange→purple gradient
+   for a single calmer teal — fewer optical fireworks, more academic. */
 :root[data-style="scholar"] .hero h1 em,
 :root[data-style="scholar"] .section-head h2 em,
 :root[data-style="scholar"] .research-text em {
-  font-style: normal;
-  font-weight: 700;
   background: none;
   -webkit-background-clip: unset;
   background-clip: unset;
-  color: inherit;
+  color: var(--scholar-accent);
   padding: 0;
 }
-/* Hide hero constellation when in scholar mode */
-:root[data-style="scholar"] .constellation { display: none; }
-/* Slightly tighter hero h1 line-height for the heavier weight */
-:root[data-style="scholar"] .hero h1 { letter-spacing: -0.005em; line-height: 1.22; }
-/* Tone down corner blobs in scholar mode */
+/* Fraunces is heavier than Instrument Serif at the same px size;
+   bump weight slightly down and tighten line-height to compensate. */
+:root[data-style="scholar"] .hero h1,
+:root[data-style="scholar"] .section-head h2,
+:root[data-style="scholar"] .research-text {
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+:root[data-style="scholar"] .hero h1 { line-height: 1.18; }
+/* Tone down corner blobs a touch (Fraunces is dense, less needs the warmth) */
 :root[data-style="scholar"] body::before,
-:root[data-style="scholar"] body::after { opacity: 0.12; }
+:root[data-style="scholar"] body::after { opacity: 0.22; }
 
 /* Pill style switch */
 .style-toggle {
