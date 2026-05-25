@@ -938,31 +938,29 @@ footer a:hover { color: var(--accent); }
   border-color: var(--accent);
 }
 
-/* ============ CAMPUS BANNER (compact, full-bleed) ============ */
+/* ============ CAMPUS BANNER (compact, content width) ============ */
 /* Stevens panorama at the bottom of the page, between Contact and footer.
-   Cropped to ~280px tall, full opacity, focused on the campus + skyline
-   band (object-position 40% from top trims mostly the grass field below
-   and a sliver of sky above). */
+   Constrained to the same max-width + gutter as the body content (i.e.,
+   ~1240px max, with side gutters), not full-bleed. */
 .campus {
-  margin: 0;
-  padding: 0;
+  margin: 32px auto 0;
+  padding: 0 var(--gutter);
+  max-width: var(--container);
   width: 100%;
   position: relative;
-  overflow: hidden;
-  background: var(--bg);
-  border-top: 1px dashed var(--rule);
 }
 .campus img {
   display: block;
   width: 100%;
-  height: clamp(220px, 24vw, 320px);
+  height: clamp(200px, 22vw, 300px);
   object-fit: cover;
   object-position: center 38%;
+  border-radius: 8px;
 }
 .campus figcaption {
   position: absolute;
-  bottom: 16px;
-  right: 24px;
+  bottom: 14px;
+  right: calc(var(--gutter) + 16px);
   font-family: var(--mono);
   font-size: 10px;
   letter-spacing: 0.22em;
