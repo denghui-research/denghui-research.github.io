@@ -821,10 +821,10 @@ footer a:hover { color: var(--accent); }
 /* data-style="scholar" = Fraunces + deep-teal italic accents,             */
 /*   in the visual register of ai-native-academia.github.io.               */
 
+/* Scholar (B) = Magazine (A) typography exactly, only with a cool
+   AI-Native color palette. Font, italic gradient, weights — all
+   unchanged. Only the CSS color variables flip. */
 :root[data-style="scholar"] {
-  --serif: "Fraunces", "Source Serif 4", Georgia, serif;
-  /* Cool AI-Native palette, scoped to Scholar only.
-     Magazine keeps the warm orange / purple. */
   --bg: #FAF8F4;
   --bg-tint: #F3EFE7;
   --ink: #0E1419;
@@ -837,7 +837,6 @@ footer a:hover { color: var(--accent); }
   --link: #0E1419;
   --nav-bg: rgba(250,248,244,0.78);
   --constellation: #0E1419;
-  --scholar-accent: #145366;
 }
 :root[data-style="scholar"][data-theme="dark"] {
   --bg: #0F1418;
@@ -853,31 +852,7 @@ footer a:hover { color: var(--accent); }
   --link: #EDE9DE;
   --nav-bg: rgba(15,20,24,0.78);
   --constellation: #EDE9DE;
-  --scholar-accent: #6FB6CC;
 }
-/* Italic emphasis keeps italics but trades the orange→purple gradient
-   for a single calmer teal — fewer optical fireworks, more academic. */
-:root[data-style="scholar"] .hero h1 em,
-:root[data-style="scholar"] .section-head h2 em,
-:root[data-style="scholar"] .research-text em {
-  background: none;
-  -webkit-background-clip: unset;
-  background-clip: unset;
-  color: var(--scholar-accent);
-  padding: 0;
-}
-/* Fraunces is heavier than Instrument Serif at the same px size;
-   bump weight slightly down and tighten line-height to compensate. */
-:root[data-style="scholar"] .hero h1,
-:root[data-style="scholar"] .section-head h2,
-:root[data-style="scholar"] .research-text {
-  font-weight: 500;
-  letter-spacing: -0.01em;
-}
-:root[data-style="scholar"] .hero h1 { line-height: 1.18; }
-/* Tone down corner blobs a touch (Fraunces is dense, less needs the warmth) */
-:root[data-style="scholar"] body::before,
-:root[data-style="scholar"] body::after { opacity: 0.22; }
 
 /* Pill style switch */
 .style-toggle {
