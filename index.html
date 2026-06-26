@@ -1955,6 +1955,12 @@ footer a:hover { color: var(--accent); }
  * Subtle reveal on scroll
  * ======================================================= */
 (function reveal() {
+  // Fire as soon as the section's edge enters the viewport.
+  // (A fractional `threshold` like 0.12 silently fails on
+  // tall sections — e.g. Publications at ~7200px — because
+  // the viewport can never contain enough of them at once
+  // to cross the ratio. That kept the whole Papers section
+  // stuck at opacity:0 / translateY.)
   const io = new IntersectionObserver(entries => {
     entries.forEach(e => {
       if (e.isIntersecting) {
@@ -1962,7 +1968,7 @@ footer a:hover { color: var(--accent); }
         io.unobserve(e.target);
       }
     });
-  }, { threshold: 0.12 });
+  }, { threshold: 0, rootMargin: '0px 0px -10% 0px' });
   document.querySelectorAll('.section, .hero').forEach(el => {
     el.classList.add('reveal');
     io.observe(el);
