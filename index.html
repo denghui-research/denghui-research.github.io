@@ -49,14 +49,6 @@
   --nav-bg: rgba(20,19,15,0.78);
   --constellation: #F3EEDF;
 }
-:root[data-theme="dark"] body::before {
-  background: radial-gradient(circle, rgba(var(--accent-rgb),0.18), transparent 70%);
-  opacity: 0.55;
-}
-:root[data-theme="dark"] body::after {
-  background: radial-gradient(circle, rgba(var(--accent-2-rgb),0.18), transparent 70%);
-  opacity: 0.55;
-}
 :root[data-theme="dark"] .award.feature {
   background: linear-gradient(135deg, rgba(var(--accent-rgb),0.10), rgba(var(--accent-2-rgb),0.06));
   border-color: rgba(var(--accent-rgb),0.3);
@@ -82,29 +74,6 @@ body {
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   overflow-x: hidden;
-}
-
-/* Soft decorative blobs in corners */
-body::before, body::after {
-  content: "";
-  position: fixed;
-  width: 520px;
-  height: 520px;
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 0;
-  filter: blur(80px);
-  opacity: 0.35;
-}
-body::before {
-  top: -180px;
-  left: -180px;
-  background: radial-gradient(circle, rgba(var(--accent-rgb),0.45), transparent 70%);
-}
-body::after {
-  bottom: -200px;
-  right: -200px;
-  background: radial-gradient(circle, rgba(var(--accent-2-rgb),0.4), transparent 70%);
 }
 
 a {
@@ -219,12 +188,13 @@ main {
 }
 .section-head .eyebrow {
   display: block;
-  font-family: var(--mono);
-  font-size: 11px;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0;
+  text-transform: none;
   color: var(--ink-mute);
-  margin-bottom: 26px;
+  margin-bottom: 20px;
 }
 .section-head h2 {
   font-family: var(--serif);
@@ -237,10 +207,7 @@ main {
 }
 .section-head h2 em {
   font-style: italic;
-  background: linear-gradient(95deg, var(--accent) 25%, var(--accent-2) 95%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  color: inherit;
 }
 @media (max-width: 860px) {
   .section-grid { grid-template-columns: 1fr; gap: 28px; }
@@ -249,26 +216,14 @@ main {
 
 /* ============ HERO ============ */
 .hero {
-  padding: clamp(80px, 12vw, 140px) 0 clamp(80px, 10vw, 120px);
-  position: relative;
-  overflow: hidden;
+  padding: clamp(72px, 10vw, 120px) 0 clamp(64px, 8vw, 96px);
 }
-.hero-inner { position: relative; z-index: 1; }
 .hero .eyebrow {
-  font-family: var(--mono);
-  font-size: 11px;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
+  font-family: var(--sans);
+  font-size: 14px;
   color: var(--ink-mute);
-  margin-bottom: 32px;
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-}
-.hero .eyebrow .dot {
-  width: 8px; height: 8px; border-radius: 50%;
-  background: var(--accent);
-  box-shadow: 0 0 0 4px rgba(var(--accent-rgb),0.18);
+  margin-bottom: 24px;
+  display: block;
 }
 .hero h1 {
   font-family: var(--serif);
@@ -282,11 +237,7 @@ main {
 }
 .hero h1 em {
   font-style: italic;
-  background: linear-gradient(95deg, var(--accent) 10%, var(--accent-2) 85%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  padding: 0 0.05em;
+  color: inherit;
 }
 .hero-sub {
   font-family: var(--sans);
@@ -307,24 +258,25 @@ main {
 .btn {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  padding: 12px 22px;
-  border-radius: 999px;
-  font-family: var(--sans);
-  font-size: 14px;
-  font-weight: 500;
-  letter-spacing: 0.01em;
-  border: 1px solid var(--ink);
+  gap: 6px;
+  padding: 0;
+  border: none;
   background: transparent;
   color: var(--ink);
+  font-family: var(--sans);
+  font-size: 15px;
+  font-weight: 400;
   cursor: pointer;
-  transition: background 0.2s, color 0.2s, border-color 0.2s;
+  border-bottom: 1px solid rgba(var(--accent-rgb), 0.35);
+  border-radius: 0;
+  transition: border-color 0.2s, color 0.2s;
 }
-.btn:hover { background: var(--ink); color: var(--bg); }
-.btn.primary { background: var(--ink); color: var(--bg); }
-.btn.primary:hover { background: var(--accent); border-color: var(--accent); }
+.btn:hover { color: var(--accent); border-bottom-color: var(--accent); background: transparent; }
+.btn.primary { background: transparent; color: var(--ink); }
+.btn.primary:hover { color: var(--accent); background: transparent; border-bottom-color: var(--accent); }
 .btn .arrow { display: inline-block; transition: transform 0.2s; }
 .btn:hover .arrow { transform: translateX(2px); }
+.cta-row { gap: 22px; }
 
 .hero-foot {
   margin-top: clamp(60px, 8vw, 96px);
@@ -456,7 +408,7 @@ main {
 }
 .research-text em {
   font-style: italic;
-  color: var(--accent);
+  color: inherit;
 }
 
 /* ============ NEWS ============ */
@@ -789,33 +741,6 @@ footer {
 footer a { color: var(--ink-mute); border: none; }
 footer a:hover { color: var(--accent); }
 
-/* ============ CONSTELLATION (hero-only) ============ */
-.constellation {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 0;
-  pointer-events: none;
-  color: var(--constellation);
-  opacity: 0.85;
-  transition: color 0.4s, opacity 0.4s;
-}
-.constellation .hl {
-  animation: hl-pulse 6s ease-in-out infinite alternate;
-  transform-origin: center;
-}
-.constellation .hl-2 { animation-duration: 9s; animation-delay: -2s; }
-.constellation .hl-3 { animation-duration: 7s; animation-delay: -4s; }
-.constellation .hl-4 { animation-duration: 11s; animation-delay: -1s; }
-@keyframes hl-pulse {
-  from { opacity: 0.25; }
-  to   { opacity: 0.65; }
-}
-@media (prefers-reduced-motion: reduce) {
-  .constellation .hl { animation: none; }
-}
-
 /* ============ STYLE TOGGLE (Magazine A / Scholar B) ============ */
 /* Default = Magazine (Instrument Serif + orange→purple gradient italics).  */
 /* data-style="scholar" = Fraunces + deep-teal italic accents,             */
@@ -1026,44 +951,29 @@ footer a:hover { color: var(--accent); }
 <main id="top">
 
   <!-- =========== HERO =========== -->
-  <section class="hero">
-    <svg class="constellation" aria-hidden="true" preserveAspectRatio="xMidYMid slice"></svg>
-    <div class="hero-inner wrap">
-    <div class="eyebrow"><span class="dot"></span><span>DENGHUI ZHANG &middot; 张登辉 &middot; HOBOKEN, NJ</span></div>
+  <section class="hero wrap">
+    <div class="eyebrow">Denghui Zhang &middot; 张登辉 &middot; Hoboken, NJ</div>
     <h1>
       I study <em>human</em>, <em>data</em>,<br />
       <em>artificial systems</em>,<br />
       and their <em>interactions</em>.
     </h1>
     <p class="hero-sub">
-      Assistant Professor at <a href="https://www.stevens.edu/" target="_blank" rel="noopener">Stevens Institute of Technology</a>,
+      I&rsquo;m an Assistant Professor at
+      <a href="https://www.stevens.edu/" target="_blank" rel="noopener">Stevens Institute of Technology</a>,
       <a href="https://www.stevens.edu/school-business" target="_blank" rel="noopener">School of Business</a>,
-      affiliated with <a href="https://www.stevens.edu/stevens-institute-for-artificial-intelligence" target="_blank" rel="noopener">SIAI</a> and
+      also affiliated with
+      <a href="https://www.stevens.edu/stevens-institute-for-artificial-intelligence" target="_blank" rel="noopener">SIAI</a> and
       <a href="https://www.stevens.edu/craft" target="_blank" rel="noopener">CRAFT</a>.
-      My research examines how generative AI reshapes decision-making,
-      accountability, and value creation in high-stakes domains &mdash;
-      particularly finance, regulation, and the digital information
-      environment.
+      I work on making large language models safer and more trustworthy,
+      with a focus on copyright leakage, unsafe behavior, and AI agents
+      for finance and other regulated settings.
     </p>
     <div class="cta-row">
       <a class="btn primary" href="#contact">Get in touch <span class="arrow">&rarr;</span></a>
       <a class="btn" href="#publications">Read my work</a>
       <a class="btn" href="https://scholar.google.com/citations?hl=en&amp;user=QoovOGcAAAAJ&amp;view_op=list_works&amp;sortby=pubdate" target="_blank" rel="noopener">Google Scholar &nearr;</a>
     </div>
-    <div class="hero-foot">
-      <span>SCROLL &darr;</span>
-      <div class="toc">
-        <a href="#about"><span class="n">01</span>About</a>
-        <a href="#research"><span class="n">02</span>Research</a>
-        <a href="#news"><span class="n">03</span>News</a>
-        <a href="#publications"><span class="n">04</span>Papers</a>
-        <a href="#teaching"><span class="n">05</span>Teaching</a>
-        <a href="#students"><span class="n">06</span>Students</a>
-        <a href="#service"><span class="n">07</span>Service</a>
-        <a href="#awards"><span class="n">08</span>Awards</a>
-      </div>
-    </div>
-    </div><!-- /.hero-inner -->
   </section>
 
   <!-- =========== ABOUT =========== -->
@@ -1075,7 +985,7 @@ footer a:hover { color: var(--accent); }
                onload="this.parentNode.classList.remove('portrait--fallback');"
                onerror="this.style.display='none';" />
         </div>
-        <span class="eyebrow">01 / About</span>
+        <span class="eyebrow">About</span>
       </div>
       <div class="about-text">
         <p>
@@ -1130,16 +1040,16 @@ footer a:hover { color: var(--accent); }
   <section class="section" id="research">
     <div class="wrap section-grid">
       <div class="section-head">
-        <span class="eyebrow">02 / Research</span>
+        <span class="eyebrow">Research</span>
         <h2>Building <em>safe</em><br />and reliable<br /><em>GenAI</em>.</h2>
       </div>
       <p class="research-text">
-        I study how <em>generative AI</em> enters consequential business and
-        societal contexts, and what it takes to deploy it <em>responsibly</em>.
-        My work focuses on the <em>trustworthy</em> behavior of large language
-        models &mdash; safety, copyright, reasoning under uncertainty &mdash;
-        and the design of <em>AI agents</em> in regulated workflows such as
-        financial decision making.
+        My work sits between two threads.
+        On one side, I look at what large language models actually do
+        &mdash; how they leak copyrighted text, when they behave unsafely,
+        and how they reason under uncertainty.
+        On the other, I build AI agents for domains that don&rsquo;t
+        forgive mistakes, like finance and other regulated settings.
       </p>
     </div>
   </section>
@@ -1148,7 +1058,7 @@ footer a:hover { color: var(--accent); }
   <section class="section" id="news">
     <div class="wrap section-grid">
       <div class="section-head">
-        <span class="eyebrow">03 / News</span>
+        <span class="eyebrow">News</span>
         <h2><em>Recent</em><br />activity.</h2>
       </div>
       <ul class="news-list">
@@ -1224,7 +1134,7 @@ footer a:hover { color: var(--accent); }
   <section class="section" id="publications">
     <div class="wrap section-grid">
       <div class="section-head">
-        <span class="eyebrow">04 / Publications</span>
+        <span class="eyebrow">Publications</span>
         <h2>What I&rsquo;ve<br /><em>written</em>.</h2>
         <p style="font-family:var(--sans);font-size:13px;color:var(--ink-mute);margin-top:20px;max-width:240px;line-height:1.5;">
           Also on <a href="https://scholar.google.com/citations?hl=en&amp;user=QoovOGcAAAAJ" target="_blank" rel="noopener">Google Scholar</a>.
@@ -1551,7 +1461,7 @@ footer a:hover { color: var(--accent); }
   <section class="section" id="teaching">
     <div class="wrap section-grid">
       <div class="section-head">
-        <span class="eyebrow">05 / Teaching</span>
+        <span class="eyebrow">Teaching</span>
         <h2>What I&rsquo;ve<br /><em>taught</em>.</h2>
       </div>
       <div class="teach-list">
@@ -1573,7 +1483,7 @@ footer a:hover { color: var(--accent); }
   <section class="section" id="students">
     <div class="wrap section-grid">
       <div class="section-head">
-        <span class="eyebrow">06 / Students</span>
+        <span class="eyebrow">Students</span>
         <h2>Where they<br /><em>are heading</em>.</h2>
       </div>
       <ul class="alumni-list">
@@ -1609,7 +1519,7 @@ footer a:hover { color: var(--accent); }
   <section class="section" id="service">
     <div class="wrap section-grid">
       <div class="section-head">
-        <span class="eyebrow">07 / Service</span>
+        <span class="eyebrow">Service</span>
         <h2>Where I<br /><em>serve</em>.</h2>
       </div>
       <div>
@@ -1680,7 +1590,7 @@ footer a:hover { color: var(--accent); }
   <section class="section" id="awards">
     <div class="wrap section-grid">
       <div class="section-head">
-        <span class="eyebrow">08 / Awards</span>
+        <span class="eyebrow">Awards</span>
         <h2><em>Recognition</em><br />&amp; honors.</h2>
       </div>
       <div class="award-grid">
@@ -1735,7 +1645,7 @@ footer a:hover { color: var(--accent); }
   <section class="section" id="contact">
     <div class="wrap section-grid">
       <div class="section-head">
-        <span class="eyebrow">09 / Contact</span>
+        <span class="eyebrow">Contact</span>
         <h2>Get <em>in touch</em>.</h2>
       </div>
       <div>
@@ -1814,94 +1724,6 @@ footer a:hover { color: var(--accent); }
     localStorage.setItem('typoStyle', next);
     document.dispatchEvent(new Event('styleChanged'));
   });
-})();
-
-/* =========================================================
- * SVG constellation background — random points + faint
- * connecting lines + a few colored "glowing" highlights
- * ======================================================= */
-(function buildConstellationOnce() {
-  const svg = document.querySelector('.constellation');
-  const hero = document.querySelector('.hero');
-  if (!svg || !hero) return;
-  function readColors() {
-    const cs = getComputedStyle(document.documentElement);
-    const a = cs.getPropertyValue('--accent').trim() || '#E3502F';
-    const b = cs.getPropertyValue('--accent-2').trim() || '#4E3F87';
-    return [a, b];
-  }
-
-  function build() {
-    const COLORS = readColors();
-    const w = hero.offsetWidth || window.innerWidth;
-    const h = Math.max(hero.offsetHeight, 600);
-    svg.setAttribute('viewBox', `0 0 ${w} ${h}`);
-    const step = 110;
-    const cols = Math.ceil(w / step) + 1;
-    const rows = Math.ceil(h / step) + 1;
-    const pts = [];
-    for (let r = 0; r < rows; r++) {
-      for (let c = 0; c < cols; c++) {
-        // jitter each grid point so it doesn't look like a grid
-        pts.push({
-          x: c * step + (Math.random() - 0.5) * step * 0.85,
-          y: r * step + (Math.random() - 0.5) * step * 0.85
-        });
-      }
-    }
-    const parts = [];
-    // Lines between nearby points
-    const maxDist = 150;
-    for (let i = 0; i < pts.length; i++) {
-      for (let j = i + 1; j < pts.length; j++) {
-        const dx = pts[i].x - pts[j].x;
-        const dy = pts[i].y - pts[j].y;
-        const d = Math.hypot(dx, dy);
-        if (d < maxDist) {
-          const op = ((1 - d / maxDist) * 0.18).toFixed(3);
-          parts.push(
-            `<line x1="${pts[i].x.toFixed(1)}" y1="${pts[i].y.toFixed(1)}" ` +
-            `x2="${pts[j].x.toFixed(1)}" y2="${pts[j].y.toFixed(1)}" ` +
-            `stroke="currentColor" stroke-width="0.5" opacity="${op}" />`
-          );
-        }
-      }
-    }
-    // Small dots at every grid point
-    pts.forEach(p => {
-      const r = 0.7 + Math.random() * 0.8;
-      const op = (0.18 + Math.random() * 0.28).toFixed(3);
-      parts.push(
-        `<circle cx="${p.x.toFixed(1)}" cy="${p.y.toFixed(1)}" r="${r.toFixed(2)}" fill="currentColor" opacity="${op}" />`
-      );
-    });
-    // A few glowing colored highlights
-    const N = 6;
-    for (let i = 0; i < N; i++) {
-      const p = pts[Math.floor(Math.random() * pts.length)];
-      const color = COLORS[i % COLORS.length];
-      const rad = 3 + Math.random() * 3.5;
-      parts.push(
-        `<circle class="hl hl-${(i % 4) + 1}" cx="${p.x.toFixed(1)}" cy="${p.y.toFixed(1)}" ` +
-        `r="${rad.toFixed(1)}" fill="${color}" filter="url(#cglow)" />`
-      );
-    }
-    svg.innerHTML =
-      `<defs><filter id="cglow" x="-50%" y="-50%" width="200%" height="200%">` +
-      `<feGaussianBlur stdDeviation="4" result="b"/>` +
-      `<feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>` +
-      `</filter></defs>` + parts.join('');
-  }
-
-  build();
-  let t;
-  window.addEventListener('resize', () => {
-    clearTimeout(t);
-    t = setTimeout(build, 200);
-  });
-  // Re-color the constellation whenever the typography style toggle
-  // swaps the --accent / --accent-2 variables.
-  document.addEventListener('styleChanged', build);
 })();
 
 /* =========================================================
