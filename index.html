@@ -6,6 +6,17 @@
 <title>Denghui Zhang (张登辉) — Assistant Professor at Stevens</title>
 <meta name="description" content="Denghui Zhang — Assistant Professor at Stevens Institute of Technology. Research on safe and reliable Generative AI." />
 
+<script>
+  // Default color palette: Scholar (B). Runs before CSS applies so
+  // there's no flash of the Magazine palette on first paint.
+  (function(){
+    try {
+      const saved = localStorage.getItem('typoStyle');
+      if (saved !== 'magazine') document.documentElement.dataset.style = 'scholar';
+    } catch (e) {}
+  })();
+</script>
+
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
@@ -199,8 +210,8 @@ main {
 .section-head h2 {
   font-family: var(--serif);
   font-weight: 400;
-  font-size: clamp(24px, 2.8vw, 36px);
-  line-height: 1.15;
+  font-size: clamp(20px, 2vw, 26px);
+  line-height: 1.2;
   letter-spacing: -0.01em;
   margin: 0;
   color: var(--ink);
@@ -228,10 +239,10 @@ main {
 .hero h1 {
   font-family: var(--serif);
   font-weight: 400;
-  font-size: clamp(24px, 2.8vw, 44px);
-  line-height: 1.2;
+  font-size: clamp(20px, 2.2vw, 32px);
+  line-height: 1.25;
   letter-spacing: 0;
-  margin: 0 0 16px;
+  margin: 0 0 14px;
   color: var(--ink);
   max-width: 640px;
 }
@@ -1716,7 +1727,8 @@ footer a:hover { color: var(--accent); }
 (function initStyle() {
   const root = document.documentElement;
   const saved = localStorage.getItem('typoStyle');
-  if (saved === 'scholar') root.dataset.style = 'scholar';
+  // Default is Scholar (B). Only Magazine (A) when explicitly saved.
+  if (saved !== 'magazine') root.dataset.style = 'scholar';
   document.getElementById('styleToggle').addEventListener('click', () => {
     const next = root.dataset.style === 'scholar' ? 'magazine' : 'scholar';
     if (next === 'magazine') {
