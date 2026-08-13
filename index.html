@@ -19,7 +19,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 
 <style>
 :root {
@@ -37,8 +37,7 @@
   --card: #F6F5F2;       /* subtle solid grey (0.45 white was invisible on white bg) */
   --nav-bg: rgba(253,253,252,0.85);
   --constellation: #16151C;
-  --serif: "Instrument Serif", "Source Serif Pro", Georgia, serif;
-  --serif-card: "Fraunces", "Source Serif 4", Georgia, serif;   /* wider serif for smaller card-scale headings; Fraunces has an opsz axis that auto-adjusts stroke and width at ~18px */
+  --serif: "Fraunces", "Source Serif 4", Georgia, serif;
   --sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   --mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
   --container: 1240px;
@@ -376,7 +375,7 @@ main {
   margin-bottom: 10px;
 }
 .about-card .title {
-  font-family: var(--serif-card);
+  font-family: var(--serif);
   font-size: 20px;
   margin: 0 0 6px;
   font-weight: 500;
@@ -505,7 +504,7 @@ main {
   letter-spacing: 0.08em;
 }
 .pub h4 {
-  font-family: var(--serif-card);
+  font-family: var(--serif);
   font-size: 18px;
   font-weight: 500;
   line-height: 1.25;
@@ -569,7 +568,7 @@ main {
   margin-bottom: 4px;
 }
 .teach-item h4 {
-  font-family: var(--serif-card);
+  font-family: var(--serif);
   font-size: 20px;
   font-weight: 500;
   margin: 0 0 4px;
@@ -598,7 +597,7 @@ main {
   align-items: baseline;
 }
 .alumni-list .name {
-  font-family: var(--serif-card);
+  font-family: var(--serif);
   font-size: 17px;
   font-weight: 500;
   line-height: 1.25;
@@ -678,7 +677,7 @@ main {
 }
 .award.feature .label { color: var(--accent); }
 .award h4 {
-  font-family: var(--serif-card);
+  font-family: var(--serif);
   font-size: 18px;
   font-weight: 500;
   margin: 0 0 4px;
@@ -712,7 +711,7 @@ main {
   margin-bottom: 4px;
 }
 .contact-card .value {
-  font-family: var(--serif-card);
+  font-family: var(--serif);
   font-size: 18px;
   font-weight: 500;
   line-height: 1.3;
