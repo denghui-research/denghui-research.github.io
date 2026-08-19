@@ -884,6 +884,58 @@ footer a:hover { color: var(--accent); }
   border-color: var(--accent);
 }
 
+/* ============ SPONSORS ============ */
+.sponsors-intro {
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--ink-soft);
+  margin: 0 0 20px;
+  max-width: 640px;
+}
+.sponsor-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 10px;
+}
+.sponsor {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 76px;
+  padding: 12px 16px;
+  border: 1px solid var(--rule);
+  border-radius: 10px;
+  background: var(--card);
+  color: var(--ink-soft);
+  text-decoration: none;
+  border-bottom: 1px solid var(--rule);          /* override global a underline */
+  transition: border-color 0.2s, color 0.2s, filter 0.25s, opacity 0.25s;
+  filter: grayscale(1);
+  opacity: 0.78;
+}
+.sponsor:hover {
+  filter: grayscale(0);
+  opacity: 1;
+  border-color: var(--accent);
+  color: var(--ink);
+}
+.sponsor img {
+  max-width: 100%;
+  max-height: 44px;
+  object-fit: contain;
+  display: block;
+}
+.sponsor .sponsor-name {
+  display: none;                                 /* only shows when the img fails */
+  font-family: var(--serif);
+  font-size: 15px;
+  font-weight: 500;
+  text-align: center;
+  line-height: 1.15;
+}
+.sponsor.img-missing img { display: none; }
+.sponsor.img-missing .sponsor-name { display: block; }
+
 /* ============ CAMPUS BANNER (compact, content width) ============ */
 /* Stevens panorama at the bottom of the page, between Contact and footer.
    Constrained to the same max-width + gutter as the body content (i.e.,
@@ -951,6 +1003,7 @@ footer a:hover { color: var(--accent); }
       <a href="#teaching">Teaching</a>
       <a href="#service">Service</a>
       <a href="#awards">Awards</a>
+      <a href="#sponsors">Sponsors</a>
       <a href="#contact">Contact</a>
     </nav>
     <button class="style-toggle" id="styleToggle" type="button" aria-label="Toggle typography style" title="Switch between Magazine (A) and Scholar (B) typography">
@@ -1704,6 +1757,50 @@ footer a:hover { color: var(--accent); }
     </div>
   </section>
 
+  <!-- =========== SPONSORS =========== -->
+  <section class="section" id="sponsors">
+    <div class="wrap section-grid">
+      <div class="section-head">
+        <span class="eyebrow">Sponsors</span>
+        <h2>Grants &amp; <em>support</em>.</h2>
+      </div>
+      <div>
+        <p class="sponsors-intro">
+          My research has been supported by grants and gifts from the
+          following institutions and companies. My sincere thanks to
+          everyone whose confidence and support have made this work
+          possible.
+        </p>
+        <div class="sponsor-grid">
+          <a class="sponsor" href="https://www.nsf.gov/" target="_blank" rel="noopener" aria-label="National Science Foundation">
+            <img src="./assets/sponsors/nsf.png" alt="NSF" />
+            <span class="sponsor-name">NSF</span>
+          </a>
+          <a class="sponsor" href="https://openai.com/" target="_blank" rel="noopener" aria-label="OpenAI">
+            <img src="./assets/sponsors/openai.svg" alt="OpenAI" />
+            <span class="sponsor-name">OpenAI</span>
+          </a>
+          <a class="sponsor" href="#" aria-label="Human Institute">
+            <img src="./assets/sponsors/human-institute.svg" alt="Human Institute" />
+            <span class="sponsor-name">Human Institute</span>
+          </a>
+          <a class="sponsor" href="https://memx.com/" target="_blank" rel="noopener" aria-label="MEMX">
+            <img src="./assets/sponsors/memx.svg" alt="MEMX" />
+            <span class="sponsor-name">MEMX</span>
+          </a>
+          <a class="sponsor" href="https://www.bankofamerica.com/" target="_blank" rel="noopener" aria-label="Bank of America">
+            <img src="./assets/sponsors/bofa.svg" alt="Bank of America" />
+            <span class="sponsor-name">Bank of America</span>
+          </a>
+          <a class="sponsor" href="https://www.wellsfargo.com/" target="_blank" rel="noopener" aria-label="Wells Fargo">
+            <img src="./assets/sponsors/wellsfargo.svg" alt="Wells Fargo" />
+            <span class="sponsor-name">Wells Fargo</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- =========== CONTACT =========== -->
   <section class="section" id="contact">
     <div class="wrap section-grid">
@@ -1858,6 +1955,18 @@ footer a:hover { color: var(--accent); }
   document.querySelectorAll('.section, .hero').forEach(el => {
     el.classList.add('reveal');
     io.observe(el);
+  });
+})();
+
+/* =========================================================
+ * Sponsor logo fallback — if an img fails to load, mark the
+ * parent `.sponsor` so its text-name pill shows instead.
+ * ======================================================= */
+(function sponsorFallback() {
+  document.querySelectorAll('.sponsor img').forEach(img => {
+    const flag = () => img.parentElement.classList.add('img-missing');
+    if (img.complete && img.naturalWidth === 0) flag();
+    img.addEventListener('error', flag);
   });
 })();
 
