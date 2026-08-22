@@ -932,6 +932,31 @@ footer a:hover { color: var(--accent); }
 .sponsor.img-missing img { display: none; }
 .sponsor.img-missing .sponsor-name { display: block; }
 
+/* ============ ADVISOR QUOTE ============ */
+/* Small epigraph placed between the campus banner and the footer.
+   Understated, book-endpaper feel. */
+.advisor-quote {
+  max-width: 640px;
+  margin: 28px auto 12px;
+  padding: 0 var(--gutter);
+  text-align: center;
+  color: var(--ink-mute);
+}
+.advisor-quote .advisor-quote-lead {
+  font-family: var(--sans);
+  font-size: 12px;
+  letter-spacing: 0.02em;
+  margin: 0 0 8px;
+}
+.advisor-quote .advisor-quote-text {
+  font-family: var(--serif);
+  font-size: 17px;
+  font-style: italic;
+  line-height: 1.45;
+  color: var(--ink-soft);
+  margin: 0;
+}
+
 /* ============ CAMPUS BANNER (compact, content width) ============ */
 /* Stevens panorama at the bottom of the page, between Contact and footer.
    Constrained to the same max-width + gutter as the body content (i.e.,
@@ -1846,6 +1871,12 @@ footer a:hover { color: var(--accent); }
          loading="lazy" decoding="async" width="2000" height="648" />
     <figcaption>Stevens &middot; Hoboken, NJ</figcaption>
   </figure>
+
+  <!-- =========== ADVISOR QUOTE =========== -->
+  <blockquote class="advisor-quote">
+    <p class="advisor-quote-lead">A classic quote inherited from my advisor:</p>
+    <p class="advisor-quote-text">&ldquo;I want it to be gain, not loss; good, not evil; success, not failure.&rdquo;</p>
+  </blockquote>
 
 </main>
 
