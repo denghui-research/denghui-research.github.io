@@ -1,21 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-style="scholar">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Denghui Zhang (张登辉) — Assistant Professor at Stevens</title>
 <meta name="description" content="Denghui Zhang — Assistant Professor at Stevens Institute of Technology. Research on safe and reliable Generative AI." />
 
-<script>
-  // Default color palette: Scholar (B). Runs before CSS applies so
-  // there's no flash of the Magazine palette on first paint.
-  (function(){
-    try {
-      const saved = localStorage.getItem('typoStyle');
-      if (saved !== 'magazine') document.documentElement.dataset.style = 'scholar';
-    } catch (e) {}
-  })();
-</script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -1006,6 +996,87 @@ footer a:hover { color: var(--accent); }
     transform: translateY(0);
   }
 }
+
+/* Refined academic layout */
+:root { --container: 1160px; }
+html { scroll-padding-top: 100px; }
+.site-nav-inner { padding-top: 21px; padding-bottom: 21px; gap: 24px; }
+.brand { font-family: var(--sans); text-transform: none; letter-spacing: -.02em; font-size: 16px; font-weight: 600; }
+.brand-dots { display: none; }
+.nav-links { gap: 25px; margin-left: auto; font-size: 13px; }
+.theme-toggle { border: 0; flex-shrink: 0; }
+.hero.wrap { padding: 76px var(--gutter) 72px; display: grid; grid-template-columns: minmax(0, 1fr) 240px; gap: 64px; align-items: center; }
+.hero .eyebrow { color: var(--accent); font-size: 12px; margin-bottom: 21px; }
+.hero h1 { font-size: clamp(38px, 4.7vw, 58px); letter-spacing: -.045em; line-height: 1.12; margin-bottom: 24px; }
+.name-zh { font-family: var(--sans); font-size: 20px; font-weight: 400; color: var(--ink-mute); letter-spacing: .06em; white-space: nowrap; display: inline-block; margin-left: 12px; vertical-align: middle; }
+.hero-focus { font-family: var(--serif); font-size: clamp(23px, 2.5vw, 30px); line-height: 1.35; letter-spacing: -.025em; margin: 0 0 16px; }
+.hero-sub { font-size: 16px; line-height: 1.7; max-width: 530px; margin-bottom: 28px; }
+.cta-row { gap: 24px; }
+.btn { font-size: 13px; padding-bottom: 4px; }
+.btn.primary { color: var(--accent); }
+.hero-portrait { margin: 0; }
+.hero-portrait img { display: block; width: 240px; height: 264px; object-fit: cover; border-radius: 3px; }
+.hero-portrait figcaption { font-size: 11px; line-height: 1.7; color: var(--ink-soft); margin-top: 14px; }
+.hero-portrait figcaption span { color: var(--ink-mute); }
+.section { padding: 48px 0; }
+.section-grid { grid-template-columns: 190px minmax(0, 1fr); gap: 48px; }
+.section + .section { border-top-style: solid; }
+#about { border-top: 1px solid var(--rule); }
+.section-head .eyebrow { color: var(--accent); font-size: 12px; margin-bottom: 12px; }
+.section-head h2 { font-size: 24px; }
+.about-text p, .about-text p:first-child { font-size: 15px; line-height: 1.75; color: var(--ink-soft); margin-bottom: 16px; }
+.prospective { border: 0; border-top: 1px solid var(--rule); border-radius: 0; background: none; padding: 18px 0 0; margin-top: 22px; }
+:root[data-theme="dark"] .prospective { background: none; }
+.prospective .label { font-family: var(--sans); font-size: 12px; text-transform: none; letter-spacing: 0; font-weight: 600; }
+.prospective p { margin: 0; font-size: 14px; }
+.research-text { font-family: var(--sans); font-size: 17px; line-height: 1.7; color: var(--ink-soft); }
+.news-list { border-top: 0; }
+.news-item { padding: 17px 0; border-bottom-style: solid; grid-template-columns: 86px minmax(0,1fr); gap: 16px; }
+.news-item:first-child { padding-top: 0; }
+.news-body { font-size: 14px; line-height: 1.65; color: var(--ink-soft); }
+.news-body strong { color: var(--ink); font-weight: 500; }
+.news-date { font-family: var(--sans); font-size: 11px; letter-spacing: .03em; }
+.news-archive { margin-top: 19px; }
+.news-archive summary { cursor: pointer; color: var(--accent); font-size: 13px; width: fit-content; }
+.news-archive summary span { color: var(--ink-mute); margin-left: 12px; font-size: 11px; }
+.news-archive[open] .news-list { margin-top: 24px; }
+.pub { padding: 20px 0; border-bottom-style: solid; }
+.pub:first-child { border-top-style: solid; }
+.pub h4 { font-size: 19px; line-height: 1.35; margin-bottom: 7px; }
+.pub .venue { font-family: var(--sans); font-size: 12px; letter-spacing: 0; }
+.pub-group h3 { font-family: var(--sans); font-size: 13px; text-transform: none; letter-spacing: 0; color: var(--ink); }
+.pub-link { border: 0; border-bottom: 1px solid var(--rule); border-radius: 0; padding: 1px 0; font-family: var(--sans); font-size: 11px; letter-spacing: 0; text-transform: none; }
+.pub-links { gap: 16px; margin-top: 9px; }
+.pub-link:hover, .pub-link.is-primary:hover { color: var(--accent); background: none; }
+.pub .badge { padding: 0; background: none; text-transform: none; font-family: var(--sans); font-size: 11px; letter-spacing: 0; }
+.pub .badge.feature { background: none; }
+.reveal { opacity: 1; transform: none; transition: none; }
+a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 5px; }
+@media(max-width: 860px) {
+  .site-nav-inner { flex-wrap: wrap; gap: 12px; }
+  .nav-links { display: flex; order: 3; width: 100%; justify-content: space-between; gap: 10px; }
+  .theme-toggle { margin-left: auto; }
+  .hero.wrap { grid-template-columns: minmax(0, 1fr) 180px; gap: 32px; padding-top: 48px; padding-bottom: 48px; }
+  .hero-portrait img { width: 180px; height: 210px; }
+  .section-grid { grid-template-columns: 1fr; gap: 24px; }
+  html { scroll-padding-top: 140px; }
+}
+@media(max-width: 600px) {
+  .hero.wrap { grid-template-columns: 1fr; gap: 30px; }
+  .hero h1 { font-size: 40px; }
+  .name-zh { font-size: 18px; margin-left: 8px; }
+  .hero-portrait { display: flex; gap: 20px; align-items: center; }
+  .hero-portrait img { width: 100px; height: 110px; }
+  .hero-portrait figcaption { margin: 0; }
+  .hero-focus { font-size: 25px; }
+  .cta-row { gap: 18px; }
+  .section { padding: 36px 0; }
+  .news-item { grid-template-columns: 1fr; gap: 6px; }
+  .pub { grid-template-columns: 38px minmax(0,1fr); gap: 10px; }
+  .pub h4 { font-size: 17px; }
+  .nav-links { font-size: 12px; }
+}
+
 </style>
 </head>
 <body>
@@ -1014,23 +1085,16 @@ footer a:hover { color: var(--accent); }
   <div class="site-nav-inner">
     <a href="#top" class="brand">
       <span class="brand-dots"><span></span><span></span></span>
-      <span>DZ &middot; Stevens</span>
+      <span>Denghui Zhang</span>
     </a>
     <nav class="nav-links" aria-label="Primary">
       <a href="#about">About</a>
       <a href="#research">Research</a>
       <a href="#news">News</a>
       <a href="#publications">Papers</a>
-      <a href="#teaching">Teaching</a>
       <a href="#service">Service</a>
-      <a href="#awards">Awards</a>
-      <a href="#sponsors">Sponsors</a>
       <a href="#contact">Contact</a>
     </nav>
-    <button class="style-toggle" id="styleToggle" type="button" aria-label="Toggle typography style" title="Switch between Magazine (A) and Scholar (B) typography">
-      <span class="opt opt-a">A</span>
-      <span class="opt opt-b">B</span>
-    </button>
     <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle color theme" title="Toggle theme">
       <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
       <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
@@ -1041,45 +1105,33 @@ footer a:hover { color: var(--accent); }
 <main id="top">
 
   <!-- =========== HERO =========== -->
-  <section class="hero wrap">
-    <div class="eyebrow">Denghui Zhang &middot; 张登辉 &middot; Hoboken, NJ</div>
-    <h1>
-      I study <em>human data</em>,<br />
-      <em>artificial systems</em>,<br />
-      and their <em>interactions</em>.
-    </h1>
-    <p class="hero-sub">
-      I&rsquo;m an Assistant Professor at
-      <a href="https://www.stevens.edu/" target="_blank" rel="noopener">Stevens Institute of Technology</a>,
-      <!-- hidden for now: <a href="https://www.stevens.edu/school-business" target="_blank" rel="noopener">School of Business</a>, -->
-      also affiliated with
-      <a href="https://www.stevens.edu/stevens-institute-for-artificial-intelligence" target="_blank" rel="noopener">SIAI</a> and
-      <a href="https://www.stevens.edu/craft" target="_blank" rel="noopener">CRAFT</a>.
-      I work on making large language models safer and more trustworthy,
-      with a focus on copyright leakage, unsafe behavior, and AI agents
-      for finance and other regulated settings.
-    </p>
-    <div class="cta-row">
-      <a class="btn primary" href="#contact">Get in touch <span class="arrow">&rarr;</span></a>
-      <a class="btn" href="#publications">Read my work</a>
-      <a class="btn" href="https://scholar.google.com/citations?hl=en&amp;user=QoovOGcAAAAJ&amp;view_op=list_works&amp;sortby=pubdate" target="_blank" rel="noopener">Google Scholar &nearr;</a>
+  <section class="hero wrap" aria-labelledby="intro-title">
+    <div class="hero-copy">
+      <div class="eyebrow">Assistant Professor &middot; Stevens Institute of Technology</div>
+      <h1 id="intro-title">Denghui Zhang <span class="name-zh" lang="zh">张登辉</span></h1>
+      <p class="hero-focus">Understanding language models.<br />Making AI more trustworthy.</p>
+      <p class="hero-sub">I study the safety, copyright, and privacy of large language models, and build AI agents for finance and other regulated settings.</p>
+      <div class="cta-row">
+        <a class="btn primary" href="#publications">Explore my research <span class="arrow">&rarr;</span></a>
+        <a class="btn" href="https://scholar.google.com/citations?hl=en&amp;user=QoovOGcAAAAJ&amp;view_op=list_works&amp;sortby=pubdate" target="_blank" rel="noopener">Google Scholar &nearr;</a>
+        <a class="btn" href="mailto:dzhang42@stevens.edu">Email</a>
+      </div>
     </div>
+    <figure class="hero-portrait">
+      <img src="./assets/portrait.jpg" alt="Portrait of Denghui Zhang" width="600" height="598" />
+      <figcaption>Stevens Institute of Technology<br /><span>Hoboken, New Jersey</span></figcaption>
+    </figure>
   </section>
 
   <!-- =========== ABOUT =========== -->
   <section class="section" id="about">
     <div class="wrap section-grid">
       <div class="section-head">
-        <div class="portrait portrait--fallback">
-          <img src="./assets/portrait.jpg" alt="Portrait of Denghui Zhang"
-               onload="this.parentNode.classList.remove('portrait--fallback');"
-               onerror="this.style.display='none';" />
-        </div>
         <span class="eyebrow">About</span>
       </div>
       <div class="about-text">
         <p>
-          <strong>Greetings.</strong> I am an Assistant Professor at
+          I am an Assistant Professor at
           Stevens Institute of Technology,<!-- hidden for now: School of Business, -->
           also affiliated with the Stevens Institute for Artificial
           Intelligence (SIAI) and the Center for Research toward
@@ -1088,41 +1140,20 @@ footer a:hover { color: var(--accent); }
         <p>
           I received my Ph.D. from <a href="https://www.rutgers.edu/" target="_blank" rel="noopener">Rutgers University</a>,
           where I was fortunate to work with Dr. <a href="https://scholar.google.com.hk/citations?hl=zh-CN&amp;user=cVDF1tkAAAAJ" target="_blank" rel="noopener">Hui Xiong</a>. Before academia, I
-          spent time at Amazon Science, Baidu Research, and NEC Labs.
+          spent time at Amazon Science (Seattle), and NEC Labs America (Princeton).
         </p>
         <p>
-          My work has appeared in top venues across machine learning and
-          information systems &mdash; <strong>IEEE TKDE, Nature Portfolio, ISR</strong>
-          and conference proceedings such as <strong>NeurIPS, KDD, ACL,
-          NAACL, ICML, ICIS</strong>. My research on tackling
-          AI <strong>safety</strong>, <strong>copyright</strong>, <strong>privacy</strong>,
-          and <strong>regulation</strong> challenges has received
-          <strong>$1.5M+ in NSF grants</strong> along with my collaborators.
+          My work spans machine learning and
+          information systems, with publications in IEEE TKDE, Nature Portfolio, ISR,
+          NeurIPS, KDD, ACL, NAACL, ICML, and ICIS. Together with my collaborators,
+          my research on AI safety, copyright, privacy, and regulation has received
+          $1.5M+ in NSF funding.
         </p>
-
-        <div class="about-cards">
-          <div class="about-card">
-            <div class="label">Education</div>
-            <div class="title">Ph.D.</div>
-            <p>Rutgers University, advised by Dr.&nbsp;Hui Xiong.</p>
-          </div>
-          <div class="about-card">
-            <div class="label">Research</div>
-            <div class="title">Trustworthy GenAI</div>
-            <p>LLM mechanistics, safety, and data&nbsp;copyright.</p>
-          </div>
-          <div class="about-card">
-            <div class="label">Service</div>
-            <div class="title">Area Chair</div>
-            <p>NeurIPS &middot; ICLR &middot; ACL &middot; EMNLP, plus reviewing for Nature Communications, TKDE, MISQ, ISR, IJOC.</p>
-          </div>
-        </div>
 
         <div class="prospective">
           <div class="label">To prospective students</div>
           <p>
-            Feel free to email me with your CV. Once we have a mutual
-            commitment, I will exert my utmost effort to help you grow.
+            Interested in working together? Email me with your CV and a short note about your research interests.
           </p>
         </div>
       </div>
@@ -1154,26 +1185,31 @@ footer a:hover { color: var(--accent); }
         <span class="eyebrow">News</span>
         <h2><em>Recent</em><br />activity.</h2>
       </div>
-      <ul class="news-list">
+      <div class="news-content">
+        <ul class="news-list">
         <li class="news-item">
           <span class="news-date">09 / 2026</span>
-          <div class="news-body"><span class="news-tag">New</span> Organizing the <strong>AI-Native Academia</strong> workshop on authorship, peer review, and conference governance under AI at <strong>NeurIPS 2026</strong> (Dec 12&ndash;13, Atlanta). <a href="https://ai-native-academia.github.io/" target="_blank" rel="noopener">Learn more &rarr;</a></div>
+          <div class="news-body">Organizing the <strong>AI-Native Academia</strong> workshop on authorship, peer review, and conference governance under AI at <strong>NeurIPS 2026</strong> (Dec 12&ndash;13, Atlanta). <a href="https://ai-native-academia.github.io/" target="_blank" rel="noopener">Learn more &rarr;</a></div>
         </li>
         <li class="news-item">
           <span class="news-date">08 / 2026</span>
-          <div class="news-body"><span class="news-tag">New</span> Awarded <strong>NSF CER ($650K)</strong> for &ldquo;Educating the Next Generation for Copyright and Privacy Risks in LLMs.&rdquo; (Sole PI at Stevens site; <strong>personal share: $300K</strong>.)</div>
+          <div class="news-body">Awarded <strong>NSF CER ($650K)</strong> for &ldquo;Educating the Next Generation for Copyright and Privacy Risks in LLMs.&rdquo; (Sole PI at Stevens site; <strong>personal share: $300K</strong>.)</div>
         </li>
         <li class="news-item">
           <span class="news-date">08 / 2026</span>
-          <div class="news-body"><span class="news-tag">New</span> Awarded <strong>NSF SaTC 2.0 ($840K)</strong> for &ldquo;Local Rules, Global Models: Jurisdiction-Aware Solutions for Copyright Vulnerabilities in LLMs.&rdquo; (Sole PI at Stevens site; <strong>personal share: $315K</strong>.)</div>
+          <div class="news-body">Awarded <strong>NSF SaTC 2.0 ($840K)</strong> for &ldquo;Local Rules, Global Models: Jurisdiction-Aware Solutions for Copyright Vulnerabilities in LLMs.&rdquo; (Sole PI at Stevens site; <strong>personal share: $315K</strong>.)</div>
         </li>
         <li class="news-item">
           <span class="news-date">08 / 2026</span>
-          <div class="news-body"><span class="news-tag">New</span> Our paper &ldquo;What Makes a Job Stay Around? Occupational Identity of AI-Related Jobs&rdquo; received the <strong>AOM CTO Best Student Paper Award</strong>.</div>
+          <div class="news-body">Our paper &ldquo;What Makes a Job Stay Around? Occupational Identity of AI-Related Jobs&rdquo; received the <strong>AOM CTO Best Student Paper Award</strong>.</div>
         </li>
+        </ul>
+        <details class="news-archive">
+          <summary>More updates <span>2024&ndash;2026</span></summary>
+          <ul class="news-list">
         <li class="news-item">
           <span class="news-date">08 / 2026</span>
-          <div class="news-body"><span class="news-tag">New</span> Check out our hands-on tutorial <strong>Evidencing LLM Misuse: Copyright Infringement &amp; Plagiarism Detection</strong> at <strong>KDD 2026</strong> (Aug 11 afternoon). <a href="https://evidencing-llm-misuse.github.io/#speakers" target="_blank" rel="noopener">Learn more &rarr;</a></div>
+          <div class="news-body">Check out our hands-on tutorial <strong>Evidencing LLM Misuse: Copyright Infringement &amp; Plagiarism Detection</strong> at <strong>KDD 2026</strong> (Aug 11 afternoon). <a href="https://evidencing-llm-misuse.github.io/#speakers" target="_blank" rel="noopener">Learn more &rarr;</a></div>
         </li>
         <li class="news-item">
           <span class="news-date">05 / 2026</span>
@@ -1185,7 +1221,7 @@ footer a:hover { color: var(--accent); }
         </li>
         <li class="news-item">
           <span class="news-date">02 / 2026</span>
-          <div class="news-body"><span class="news-tag">New</span> Preprint on <strong>Copyright Detective</strong> &mdash; a forensic system to evidence LLMs&rsquo; flickering copyright leakage risks. <a href="https://arxiv.org/abs/2602.05252" target="_blank" rel="noopener">Learn more &rarr;</a></div>
+          <div class="news-body">Preprint on <strong>Copyright Detective</strong> &mdash; a forensic system to evidence LLMs&rsquo; flickering copyright leakage risks. <a href="https://arxiv.org/abs/2602.05252" target="_blank" rel="noopener">Learn more &rarr;</a></div>
         </li>
         <li class="news-item">
           <span class="news-date">01 / 2026</span>
@@ -1239,7 +1275,9 @@ footer a:hover { color: var(--accent); }
           <span class="news-date">07 / 2024</span>
           <div class="news-body">Awarded the <strong>OpenAI Researcher Access Program</strong>.</div>
         </li>
-      </ul>
+          </ul>
+        </details>
+      </div>
     </div>
   </section>
 
@@ -1275,7 +1313,7 @@ footer a:hover { color: var(--accent); }
         -->
 
         <div class="pub-group">
-          <h3>Journal Articles <span class="hint">reverse chronological</span></h3>
+          <h3>Journal Articles</h3>
           <ul class="pub-list">
 
             <li class="pub">
@@ -1284,7 +1322,7 @@ footer a:hover { color: var(--accent); }
                 <h4><a href="#">The Impacts of Senior Technology Executives&rsquo; Mobility on Complementor Innovation in Software Platform Ecosystems</a></h4>
                 <p class="authors">Chen Zhang, He Li, Jingyi Sun, <strong>Denghui Zhang</strong></p>
                 <span class="venue">Information Systems Research (ISR), 2026 (Accepted)</span>
-                <span class="badges"><span class="badge feature">UTD24</span><span class="badge feature">FT50</span></span>
+                
               </div>
             </li>
 
@@ -1347,7 +1385,7 @@ footer a:hover { color: var(--accent); }
         </div>
 
         <div class="pub-group">
-          <h3>A* AI Conferences <span class="hint">per <a href="https://portal.core.edu.au/conf-ranks/" target="_blank" rel="noopener">CORE</a> &middot; cross-checked with <a href="https://scholar.google.com/citations?view_op=top_venues&amp;hl=en&amp;vq=eng_artificialintelligence" target="_blank" rel="noopener">Google Scholar top venues</a></span></h3>
+          <h3>AI Conference Papers</h3>
           <ul class="pub-list">
 
             <li class="pub" data-pdf="https://arxiv.org/abs/2602.05252" data-project="https://changhu73.github.io/projects/copyright-detective/" data-demo="https://copyright-detective.streamlit.app/">
@@ -1356,7 +1394,7 @@ footer a:hover { color: var(--accent); }
                 <h4><a href="https://arxiv.org/abs/2602.05252" target="_blank" rel="noopener">Copyright Detective: A Forensic System to Evidence LLMs&rsquo; Flickering Copyright Leakage Risks</a></h4>
                 <p class="authors">Guangwei Zhang, Jianing Zhu, Cheng Qian, Neil Gong, Rada Mihalcea, Zhaozhuo Xu, Jingrui He, Jiaqi Ma, Yun Huang, Chaowei Xiao, Bo Li, Ahmed Abbasi, Dongwon Lee, Heng Ji, <strong>Denghui Zhang*</strong></p>
                 <span class="venue">ACL 2026 Demo Track</span>
-                <span class="badges"><span class="badge feature">Demo</span></span>
+                
               </div>
             </li>
 
@@ -1535,7 +1573,7 @@ footer a:hover { color: var(--accent); }
         </div>
 
         <div class="pub-group">
-          <h3>Information Systems &amp; Other Conferences <span class="hint">IS &amp; domain-specific venues</span></h3>
+          <h3>Information Systems &amp; Other Conferences</h3>
           <ul class="pub-list">
 
             <li class="pub" data-pdf="https://aisel.aisnet.org/hicss-57/in/impacts/3/">
@@ -1903,28 +1941,6 @@ footer a:hover { color: var(--accent); }
   });
 })();
 
-/* =========================================================
- * Typography style toggle (Magazine A / Scholar B)
- * Default is Magazine (Instrument Serif + italic gradient).
- * Scholar swaps display font to Source Serif 4 and turns
- * italic-gradient emphasis into plain bold.
- * ======================================================= */
-(function initStyle() {
-  const root = document.documentElement;
-  const saved = localStorage.getItem('typoStyle');
-  // Default is Scholar (B). Only Magazine (A) when explicitly saved.
-  if (saved !== 'magazine') root.dataset.style = 'scholar';
-  document.getElementById('styleToggle').addEventListener('click', () => {
-    const next = root.dataset.style === 'scholar' ? 'magazine' : 'scholar';
-    if (next === 'magazine') {
-      delete root.dataset.style;
-    } else {
-      root.dataset.style = next;
-    }
-    localStorage.setItem('typoStyle', next);
-    document.dispatchEvent(new Event('styleChanged'));
-  });
-})();
 
 /* =========================================================
  * Render PDF / Code / Slides / BibTeX buttons on each paper —
