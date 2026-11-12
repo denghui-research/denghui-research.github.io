@@ -651,7 +651,7 @@ main {
 /* ============ AWARDS ============ */
 .award-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: minmax(0, 1fr);
   gap: 10px;
 }
 .award {
@@ -685,9 +685,6 @@ main {
 }
 .award p { margin: 0; font-size: 12.5px; line-height: 1.45; color: var(--ink-soft); }
 .award .org { font-size: 12.5px; line-height: 1.45; color: var(--ink-soft); }
-@media (max-width: 720px) {
-  .award-grid { grid-template-columns: 1fr; }
-}
 
 /* ============ CONTACT ============ */
 .contact-grid {
