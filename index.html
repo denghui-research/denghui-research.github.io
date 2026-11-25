@@ -793,37 +793,6 @@ footer a:hover { color: var(--accent); }
   --constellation: #EDE9DE;
 }
 
-/* Pill style switch */
-.style-toggle {
-  display: inline-flex;
-  align-items: center;
-  height: 28px;
-  border: 1px solid var(--rule);
-  border-radius: 999px;
-  background: transparent;
-  font-family: var(--mono);
-  font-size: 10px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  cursor: pointer;
-  user-select: none;
-  padding: 0;
-  overflow: hidden;
-}
-.style-toggle:hover { border-color: var(--ink); }
-.style-toggle .opt {
-  width: 28px;
-  height: 28px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--ink-mute);
-  transition: background 0.18s, color 0.18s;
-}
-.style-toggle .opt-a { color: var(--accent); font-weight: 500; }
-:root[data-style="scholar"] .style-toggle .opt-a { color: var(--ink-mute); font-weight: 400; }
-:root[data-style="scholar"] .style-toggle .opt-b { color: var(--accent); font-weight: 500; }
-
 /* ============ THEME TOGGLE ============ */
 .theme-toggle {
   width: 36px;
@@ -1024,10 +993,6 @@ footer a:hover { color: var(--accent); }
       <a href="#sponsors">Sponsors</a>
       <a href="#contact">Contact</a>
     </nav>
-    <button class="style-toggle" id="styleToggle" type="button" aria-label="Toggle typography style" title="Switch between Magazine (A) and Scholar (B) typography">
-      <span class="opt opt-a">A</span>
-      <span class="opt opt-b">B</span>
-    </button>
     <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle color theme" title="Toggle theme">
       <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
       <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
@@ -1904,29 +1869,6 @@ footer a:hover { color: var(--accent); }
     const next = root.dataset.theme === 'dark' ? 'light' : 'dark';
     root.dataset.theme = next;
     localStorage.setItem('theme', next);
-  });
-})();
-
-/* =========================================================
- * Typography style toggle (Magazine A / Scholar B)
- * Default is Magazine (Instrument Serif + italic gradient).
- * Scholar swaps display font to Source Serif 4 and turns
- * italic-gradient emphasis into plain bold.
- * ======================================================= */
-(function initStyle() {
-  const root = document.documentElement;
-  const saved = localStorage.getItem('typoStyle');
-  // Default is Scholar (B). Only Magazine (A) when explicitly saved.
-  if (saved !== 'magazine') root.dataset.style = 'scholar';
-  document.getElementById('styleToggle').addEventListener('click', () => {
-    const next = root.dataset.style === 'scholar' ? 'magazine' : 'scholar';
-    if (next === 'magazine') {
-      delete root.dataset.style;
-    } else {
-      root.dataset.style = next;
-    }
-    localStorage.setItem('typoStyle', next);
-    document.dispatchEvent(new Event('styleChanged'));
   });
 })();
 
